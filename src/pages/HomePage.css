@@ -1,0 +1,39 @@
+.links-header {
+  background-image: url(../images/DSC02218.JPG);
+  background-size: 150vh;
+  background-position: center;
+  background-clip: content-box;
+  min-height: 100vh auto;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.heading-val {
+  font-size: 5vh;
+}
+.home-header {
+  font-size: 3vh;
+  background-color: #282c45;
+  color: white;
+}
+
+.app-body {
+  align-self: center;
+  margin: 10vh;
+  margin-bottom: 30vh;
+  background-color: #282c34;
+}
+
+.self {
+  border-radius: 45%;
+  width: 25vh;
+  height: 20vh;
+}
+
+.homePage {
+  background-color: ;
+}
