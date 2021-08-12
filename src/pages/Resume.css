@@ -1,6 +1,36 @@
+.hr {
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+.fr {
+  border: 0px;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+}
+.resume-tab {
+  background: url(../images/20150414_204359.jpg) no-repeat center center fixed;
+  background-size: cover;
+
+  background-position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  margin: 0;
+}
 .resume-page {
   align-content: center;
-  background-color: #282c34;
+  background: #282c34;
   color: white;
-  margin: 10vh;
+  margin: 0;
+  padding: 5%;
+}
+.head-text {
+  font-size: 2vh;
 }

@@ -1,39 +1,49 @@
-.links-header {
-  background-image: url(../images/DSC02218.JPG);
-  background-size: 150vh;
+.home-header {
+  background-image: url(../images/DSC02935.JPG);
+  background-size: cover;
   background-position: center;
   background-clip: content-box;
-  min-height: 100vh auto;
+  min-height: 130vh;
   display: flex;
-  flex-direction: column;
-  align-items: left;
-  justify-content: left;
+
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
-.heading-val {
-  font-size: 5vh;
-}
-.home-header {
+.home-page {
   font-size: 3vh;
-  background-color: #282c45;
+  background-color: #282c35;
+  background-size: cover;
   color: white;
 }
 
-.app-body {
+.home-body {
   align-self: center;
-  margin: 10vh;
-  margin-bottom: 30vh;
-  background-color: #282c34;
+  margin: 0;
+  border-bottom: 3vh;
+  background: #282c34;
+  color: white;
+  padding: 10%;
 }
 
 .self {
-  border-radius: 45%;
-  width: 25vh;
-  height: 20vh;
-}
+  border-radius: 5%;
 
+  position: relative;
+  left: 4%;
+
+  width: 90%;
+  height: 40vh;
+}
+.h1H {
+  text-align: center;
+}
+.h2 {
+  color: #66ccff;
+  padding-left: 10%;
+  padding-top: 5%;
+}
 .homePage {
-  background-color: ;
+  background-color: #000000;
+  background-image: none;
 }

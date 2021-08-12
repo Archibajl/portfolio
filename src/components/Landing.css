@@ -1,0 +1,26 @@
+.landing-page {
+  background: url(../images/DSC00100.JPG) no-repeat center center fixed;
+  background-size: cover;
+  position: fixed;
+  padding: 0;
+  margin: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  z-index: back;
+}
+.welcome-slogan {
+  text-align: center;
+  align-items: center;
+  color: black;
+}
+.btn {
+  position: absolute;
+  top: 50%;
+  left: 47%;
+  size: 120%;
+  background-color: gray;
+}
