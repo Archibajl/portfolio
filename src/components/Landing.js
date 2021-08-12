@@ -37,7 +37,7 @@ function Landing() {
           backgroundsize: "cover",
         }}
       >
-        <h1 class="welcome-slogan">Hello and Welcome to my Portfolio Page</h1>
+        <h1 class="welcome-slogan">Welcome to my Portfolio Page</h1>
         <br />
         <br />
         <a href="../App" component={App}>

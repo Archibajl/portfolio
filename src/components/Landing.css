@@ -16,6 +16,15 @@
   text-align: center;
   align-items: center;
   color: black;
+  -webkit-animation: 2s infinite;
+  @-webkit-keyframes {
+    0% {
+      color: green;
+    }
+    50% {
+      color: red;
+    }
+  }
 }
 .btn {
   position: absolute;
