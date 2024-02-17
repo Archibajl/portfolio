@@ -3,18 +3,21 @@ import "./Resume.css";
 const key_qualifications = (
   <text>
     • COMPUTER SCIENCE SKILLS: <br />
-    -Programming languages: OOP, MySQL, C, C++, C# , JAVA, VISUAL BASIC, Python,
-    Bash Script.
+    -Programming languages: OOP, Java, Javascript MySQL, C, C++, C# , JAVA, VISUAL BASIC, Python,
+    Bash Script.<br/>
+    Also Machine Learning, DataScience, Database Management, and CyberSecurity.
     <br />
-    -Secondary Skills: Machine Learning (TensorFlow Keras), Algorithms, LINQ,
-    SQL/MySQL, Unity, basic TCP/IP.
+    -Secondary Skills: Machine Learning (TensorFlow Keras), Algorithms, LINQ,<br />
+    Database Management, SQL/MySQL, MongoDB, Netowrking TCP/IP, domain name resolution,<br />
+    CyberSecurity.
     <br />
     -Web-Developer skills: self-taught HTML/CSS & Javascript, programming;
     Related: React, React-bootstrap.
     <br />
     • Github pages included in projects page.
     <br />
-    • Other Skills: PRIOR SECURITY CLEARANCE, LEADERSHIP, MULTI-LINGUAL.
+    • Other Skills: LEADERSHIP/ Management, Professional Writing,
+     MULTI-LINGUAL.
     <br />
     • MANAGEMENT EXPERIENCE, CRASH TRAINING/ EXP, ADR/HAZ MATERIAL TRANSPORT AND
     STORAGE QUALIFICATIONS & EXPERIENCE.
@@ -37,13 +40,48 @@ const education = (
     • Airmen leadership school See EXPERIENCE. <br />• ADR shipping certified.
   </text>
 );
+
+const csJobs = (
+  <text>  
+    • Software Engineering April 2022- Current.
+    <br/>
+    Produced java code and integration across multiple projects.
+  </text>
+);
+
+const certs = (
+  <text>
+    • IBM DataScience Certificate  <br />
+    Completed - online Coursera training including Database management/queries,
+    data visualisations including pyplot, Seaborn, and MatPlotlib.<br />
+    Machine learning using SK-Learn and pandas to produce decision trees, linear regression,
+    multiple linear regression, and k-means clustering, and support vector matrixes.<br />
+    • Google Cybersecurity Certificate <br />
+    Learned the basics of cybersecurity including tools like netstat, log analysis,
+    SIM management systems, access controlls, and wireshark packet reading and construction.
+    <br />
+    Coursera.
+    <br />
+    • App Brewery Web-Developer bootcamp.
+    <br />
+    Learned Javascript, html, css, Javascript, basic React, lodash, JQuery, Express js,
+    RESTfull API usage and calls, and many other technologies, including Mongo DB, PostGress SQL,
+    MailChimp, etc.<br/>
+    • Airmen leadership school See EXPERIENCE. <br />• ADR shipping certified.
+  </text>
+);
+
 const cSExp = (
   <text>
-    Machine Learning (Artificial Neural Networks) – Semester work on Neural
-    Networks, some experience using CNN, ANN, and LSTM Neural Network models.
-    Other involving Data shaping and manipulation. Tensorflow Keras, genism
-    glove & word2vec word processing.
+
+    <br/>
+    Java - experience writing and running java code including 
+    extending interfaces, abstract, and regular classes multi-threading, 
+    thread safe methods and objects, modularization, Eclipse, 
+    Visual Studio, and Jet-Brains IntelliJ IDEs, Debug, loging ect.
     <br />
+    Esperience with Apache family of applications & other open source projects.
+    <br/>
     Database Systems – Some experience writing MySQL database creation and
     queries, in Databases, tables, and row/column creation.
     <br />
@@ -56,26 +94,27 @@ const cSExp = (
     Unity game dev – Produced Card games for projects, involving screen change,
     design, movement functionality, and event sequences.
     <br />
-    C++ - 3 semesters in C++ programming language, I can code some C++ programs
-    mostly using command prompt and work with general text files, Linked lists,
-    Classes, ect.
+    C++ - Some C++ experience including using standard library, vectors,
+    structures, Linked Lists, class extentions, file reading/writing, cli input,
+    ect. Also proficient in turciary operators and general object 
+    traversal including bit shifting, vector traversal, & other projects.
     <br />
-    C# - 1 semester in C# programming language, I can code general C# programs
-    proficient in using the .NET framework both windows forms based programs and
+    C# -C# programming language, proficient in using the .NET framework 
+    both windows forms based programs and
     console programs. Includes use of Lists, Abstract classes, Interfaces,
     Threading, Linq & Lambda, some TCP/ network/port communication, and Xamil.
     Produced Enigma encode, forms applications, command prompt text games, and
     others.
     <br />
-    C- 3 semester of C programming, can work with Linked Lists, pipe lining,
-    strings, and other problems related to C++.
+    C- C programming, can work with Linked Lists, pipe lining,
+    strings, and other problems related to C or C++, this includes
+    updating operating system variables and pointer manipulation.
     <br />
     Python – Can preform all basic tasks in Python programming language, worked
-    with TensorFlow, Keras, SK-Learn, and others.
+    with TensorFlow, Keras, SK-Learn, pandas, Seaborn, matplotlib, and others.
     <br />
     Java – Experience writing and linking programs in Java using classes, lists,
-    on Eclipse, and Visual Studio IDEs, Debug, ect. Includes basic knowledge and
-    work involving JavaScript.
+    on.
     <br />
     Html, CSS, Javascript- Minor experience making web pages includes use of
     HTML and CSS, also includes basic knowledge of Javascript.
@@ -150,14 +189,22 @@ function Resume() {
         <h1>Resume/CV</h1>
         <h2>Summary</h2>
         <p>
-          Computer Science Major & Software Engineer/Developer, and Aircraft
+          Software Engineer/Developer, and former Aircraft
           Maintainer. “OPEN TO OPPORTUNITIES”.
         </p>
         <h3>Key Qualifications</h3>
         <p>{key_qualifications}</p>
         <h4>Experience:</h4>
         <div>
-          <h1 class="head-text">Programming/CS</h1>
+        <h1 class="head-text">Employment</h1>
+            {csJobs}
+            <br />
+            <br />
+        <h1 class="head-text">Certificates</h1>
+            {certs}
+            <br />
+            <br />
+         <h1 class="head-text">Programming/CS</h1>
           <p>
             {cSExp}
             <br />
