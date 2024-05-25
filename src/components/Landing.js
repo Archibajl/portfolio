@@ -21,7 +21,6 @@ import {
 } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 //import { slide as Menu } from "react-burger-menu";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import "bootstrap";
 
 function Landing() {

@@ -30,9 +30,9 @@ import reportWebVitals from "./reportWebVitals";
 //ReactDOM.render(<Home />, document.getElementById("root"));
 
 ReactDOM.render(
-  <BrowserRouter>
+  <div>
     <App />
-  </BrowserRouter>,
+  </div>,
   document.getElementById("root")
 );
 /*ReactDOM.render(
