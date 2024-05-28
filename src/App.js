@@ -32,6 +32,8 @@ function App() {
     <div className="App">
       <Router default="/components/Landing" element={<Landing/>}>
         <Routes>
+        <Route path="/" element={
+            <Landing />} />
           <Route path="/pages/HomePage" element={<div>
             <Heading />
             <Home />
@@ -80,8 +82,9 @@ function Heading() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="page-links">
-                <Nav.Link href="../pages/HomePage">Home</Nav.Link> //Links
+                <Nav.Link href="../pages/HomePage">Home</Nav.Link> {//Links
                 //internal react pages
+                }
                 <Nav.Link href="../pages/Resume">Resume/CV</Nav.Link>
                 <Nav.Link href="../pages/Projects">Projects</Nav.Link>
                 <Nav.Link href="../pages/ReactPgs">React Pages</Nav.Link>
@@ -96,7 +99,7 @@ function Heading() {
                       keywords=""
                     />
                   </Nav.Link>{" "}
-                  //wprkaround for linking external pages using links
+                  {/*workaround for linking external pages using links*/}
                 </NavItem>
               </Nav>
             </Navbar.Collapse>
