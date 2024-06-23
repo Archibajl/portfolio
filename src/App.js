@@ -32,8 +32,8 @@ function App() {
     <div className="App">
       <Router default="/components/Landing" element={<Landing/>}>
         <Routes>
-        <Route path="/" element={
-            <Landing />} />
+        <Route path="/" element={<div>
+            <Landing /> </div>} />
           <Route path="/pages/HomePage" element={<div>
             <Heading />
             <Home />

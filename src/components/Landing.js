@@ -39,7 +39,7 @@ function Landing() {
         <h1 class="welcome-slogan">Welcome to my Portfolio Page</h1>
         <br />
         <br />
-        <a href="../App" component={App}>
+        <a >
           <Button
             variant="outline-success"
             size="lg"
