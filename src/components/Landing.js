@@ -21,7 +21,6 @@ import {
 } from "react-bootstrap";
 import Nav from "react-bootstrap/Nav";
 //import { slide as Menu } from "react-burger-menu";
-import { BrowserRouter as Router, Link, Route, Switch } from "react-router-dom";
 import "bootstrap";
 
 function Landing() {
@@ -40,7 +39,7 @@ function Landing() {
         <h1 class="welcome-slogan">Welcome to my Portfolio Page</h1>
         <br />
         <br />
-        <a href="../App" component={App}>
+        <a >
           <Button
             variant="outline-success"
             size="lg"

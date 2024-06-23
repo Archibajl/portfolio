@@ -1,6 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React from "react";
 import ReactDOM from "react-dom";
 import Projects from "./pages/Projects.js";
@@ -30,38 +30,40 @@ ReactDOM.render(<App />, document.getElementById("root"));
 function App() {
   return (
     <div className="App">
-      <Router default="/components/Landing" component={Landing}>
-        <Switch>
-          <Route path="/pages/HomePage" component={Home}>
+      <Router default="/components/Landing" element={<Landing/>}>
+        <Routes>
+        <Route path="/" element={<div>
+            <Landing /> </div>} />
+          <Route path="/pages/HomePage" element={<div>
             <Heading />
             <Home />
             <Footer />
-          </Route>
-          <Route path="/pages/Projects" component={Projects}>
+            </div>} />
+          <Route path="/pages/Projects" element={<div>
             <Heading />
             <Projects />
             <Footer />
-          </Route>
-          <Route path="/pages/ReactPgs" component={ReactPgs}>
+            </div>}/>
+          <Route path="/pages/ReactPgs" element={<div>
             <Heading />
             <ReactPgs />
             <Footer />
-          </Route>
-          <Route path="/pages/Resume" component={Resume}>
+          </div>}/>
+          <Route path="/pages/Resume" element={<div>
             <Heading />
             <Resume />
             <Footer />
-          </Route>
-          <Route path="/pages/About" component={About}>
+          </div>}/>
+          <Route path="/pages/About" element={<div>
             <Heading />
             <About />
             <Footer />
-          </Route>
-          <default>
+          </div>}/>
+          <Route path="/pages/*" element={<div>
             <Landing />
             <Footer />
-          </default>
-        </Switch>
+          </div>}/>
+        </Routes>
       </Router>
     </div>
   );
@@ -80,8 +82,9 @@ function Heading() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="page-links">
-                <Nav.Link href="../pages/HomePage">Home</Nav.Link> //Links
+                <Nav.Link href="../pages/HomePage">Home</Nav.Link> {//Links
                 //internal react pages
+                }
                 <Nav.Link href="../pages/Resume">Resume/CV</Nav.Link>
                 <Nav.Link href="../pages/Projects">Projects</Nav.Link>
                 <Nav.Link href="../pages/ReactPgs">React Pages</Nav.Link>
@@ -96,7 +99,7 @@ function Heading() {
                       keywords=""
                     />
                   </Nav.Link>{" "}
-                  //wprkaround for linking external pages using links
+                  {/*workaround for linking external pages using links*/}
                 </NavItem>
               </Nav>
             </Navbar.Collapse>
