@@ -17,6 +17,8 @@
     "yarn": "^1.22.22"
   },
   "scripts": {
+    "predeploy" : "npm run build",
+    "install" : "npm install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
