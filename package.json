@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "components/Landing",
+  "homepage": "https://archibajl.github.io/portfolio/components/Landing",
   "dependencies": {
     "bootstrap": "^5.0.2",
     "react": "^18.3.1",
