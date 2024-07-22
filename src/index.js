@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
+import "./ExpressRouter.js"
 import Home from "./pages/HomePage";
 import Landing from "./components/Landing";
 import Base from "./BackEndFunctions.js";
@@ -23,7 +24,6 @@ import {
 //import resume from "./pages/resume";
 //import rctPages from "./pages/react-projects";
 //import projects from "./pages/projects";
-import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 //let BaseClass = new Base();
 //ReactDOM.render(<App />, document.getElementById("root"));
