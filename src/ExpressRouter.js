@@ -9,7 +9,8 @@ import Resume from "./pages/Resume.js";
 import About from "./pages/About.js";
 import Home from "./pages/HomePage";
 import Landing from "./components/Landing.js";
-import { Heading, Footer } from "./App.js"
+import Components from "./App.js"
+const { Heading, Footer } = Components;
 
 // const express = require('express');
 const path = require('path');
@@ -30,6 +31,9 @@ app.post('/',
     (req, res) => {
         res.post(<div><Landing /></div>);
     });
+
+
+
 app.post('/pages/HomePage',
     function (req, res) {
         res.send(<div>

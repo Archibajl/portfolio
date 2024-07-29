@@ -69,7 +69,6 @@ function App() {
   );
 }
 
-export default App;
 
 function Heading() {
   //Produces header navbar with links to internal and external pages.
@@ -131,3 +130,4 @@ function Footer() {
     </>
   );
 }
+export default {App, Heading, Footer};
