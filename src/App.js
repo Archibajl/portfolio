@@ -32,7 +32,7 @@ function App() {
     <div className="App">
       <Router default="/components/Landing" element={<Landing/>}>
         <Routes>
-        <Route path="/" element={<div>
+        <Route path="//components/Landing" element={<div>
             <Landing /> </div>} />
           <Route path="/pages/HomePage" element={<div>
             <Heading />

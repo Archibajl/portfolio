@@ -2,24 +2,25 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http:///src/components/",
+
+  "homepage": "/components/Landing",
+  
   "dependencies": {
-    "@testing-library/jest-dom": "^6.4.5",
-    "@testing-library/react": "^15.0.7",
-    "@testing-library/user-event": "^14.5.2",
     "bootstrap": "^5.0.2",
     "dotenv": "^16.4.5",
     "openai": "^4.52.0",
     "react": "^18.3.1",
-    "react-bootstrap": "^2.10.2",
-    "react-burger-menu": "^3.0.6",
+    "react-bootstrap": "^2.10.4",
+    "react-burger-menu": "^3.0.9",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.23.1",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "web-vitals": "^4.0.1",
     "yarn": "^1.22.22"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy" : "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,10 +44,14 @@
       "last 1 safari version"
     ]
   },
+  "devDependencies": {
+    "gh-pages": "^6.1.1",
+    "@testing-library/dom": "^10.3.1",
+    "@testing-library/react": "^16.0.0"
+  },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {}
+  "author": "Justin Archibald",
+  "license": "ISC"
 }
