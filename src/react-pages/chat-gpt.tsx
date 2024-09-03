@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 
 const [prompt, setPrompt] = useState < string > ('');
-const [response, setResponse] = useState <Array<string>> ([""]);
+const [responses, setResponses] = useState <Array<string>> ([""]);
 const [loading, setLoading] = useState < boolean > (false);
 
 
@@ -11,7 +11,7 @@ const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
-    const chatGPT = openai.completions.create({
+    const chatGPT = await openai.completions.create({
     model: "gpt-3.5-turbo-turbo-16k",
     prompt: prompt,
     temperature: 1,
@@ -21,8 +21,6 @@ const openai = new OpenAI({
     presence_penalty: 0
 });
 
-// const thread = await openai.beta.threads.create();
-
 
 function Chat_GPT() {
     return (
@@ -31,7 +29,7 @@ function Chat_GPT() {
             <div className="chat-prompt">
                 <textarea
                     id="prompt"
-                    value={response}
+                    value={responses}
                     rows={30}
                 />
                 <br/>
@@ -53,8 +51,9 @@ function Chat_GPT() {
 
 async function GPTAPICall(){
     try{
-        setResponse(chatGPT);
-        console.log(apiResponse);
+        var res =  chatGPT.choices[0].text;
+        setResponses(responses [res]);
+        console.log(res);
     }
     catch(error){
         console.log(error);
@@ -62,9 +61,6 @@ async function GPTAPICall(){
 }   
 function setPromptValue(value :string){
     setPrompt(value);
-}
-function getResponse(){
-    return response;
 }
 
 export default Chat_GPT;
