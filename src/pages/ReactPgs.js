@@ -1,5 +1,5 @@
 import "./ReactPgs.css";
-import Chat_Gpt from "../react-pages/chat-gpt.js"
+import Chat_Gpt from "../react-pages/chat-gpt.tsx"
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
