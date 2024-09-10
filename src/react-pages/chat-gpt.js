@@ -1,7 +1,6 @@
 import OpenAI from "openai";
 import React, { useState } from 'react';
 
-
    
            
     function ChatBot() {
@@ -63,5 +62,4 @@ import React, { useState } from 'react';
         }
     }
     
-
 export default ChatBot;
