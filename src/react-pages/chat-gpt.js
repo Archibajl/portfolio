@@ -3,23 +3,8 @@ import React, { useState } from 'react';
 
 
    
-    function setChatBot(){
-        const chatGPT = await this.openai.completions.create({
-            model: "gpt-3.5-turbo-turbo-16k",
-            prompt: this.prompt,
-            temperature: 1,
-            max_tokens: 256,
-            top_p: 1,
-            frequency_penalty: 5,
-            presence_penalty: 0
-        });
-         
-    const openai = new OpenAI({
-        apiKey: process.env.OPENAI_API_KEY,
-    });
-    }
-   
-    function chatBot(){
+           
+    function ChatBot() {
         const [prompt, setPrompt] = useState([""]) ;
         const [responses, setResponses] = useState([""]);
         const [loading, setLoading] = useState(false);
@@ -49,6 +34,21 @@ import React, { useState } from 'react';
             </div>
         </div>
         );
+
+        const chatGPT = openai.completions.create({
+            messages: [{ role: 'user', content: 'Say this is a test' }],
+            model: "gpt-3.5-turbo-turbo-16k",
+            prompt: this.prompt,
+            temperature: 1,
+            max_tokens: 256,
+            top_p: 1,
+            frequency_penalty: 5,
+            presence_penalty: 0
+        });
+         
+    const openai = new OpenAI({
+        apiKey: process.env.OPENAI_API_KEY,
+    });
 
         async function GPTAPICall() {
             try {

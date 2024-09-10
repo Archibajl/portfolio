@@ -1,5 +1,5 @@
 import "./ReactPgs.css";
-import Chat_Gpt from "../react-pages/chat-gpt.tsx"
+import ChatBot from "../react-pages/chat-gpt.js"
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
 
@@ -19,7 +19,7 @@ function ReactPgs() {
       </Tab>
       <Tab eventKey="profile" title="Profile">
         <div>
-          <Chat_Gpt />
+          <ChatBot />
         </div>
       </Tab>
       <Tab eventKey="contact" title="Contact" disabled>
