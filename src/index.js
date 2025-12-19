@@ -1,39 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import Home from "./pages/HomePage";
-import Landing from "./components/Landing";
-import Base from "./BackEndFunctions.js";
-import {
-  Form,
-  FormControl,
-  Nav,
-  Navbar,
-  Container,
-  Button,
-  NavDropdown,
-  Dropdown,
-  ButtonGroup,
-  DropdownButton,
-  SplitButton,
-} from "react-bootstrap";
-
-//import { Navlink, Button } from "reactstrap";
-//import resume from "./pages/resume";
-//import rctPages from "./pages/react-projects";
-//import projects from "./pages/projects";
-import { BrowserRouter } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
-//let BaseClass = new Base();
-//ReactDOM.render(<App />, document.getElementById("root"));
-//ReactDOM.render(<Home />, document.getElementById("root"));
 
-ReactDOM.render(
-  <div>
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
     <App />
-  </div>,
-  document.getElementById("root")
+  </React.StrictMode>
 );
 /*ReactDOM.render(
   <BrowserRouter>

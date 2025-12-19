@@ -1,6 +1,6 @@
 class Base {
   constructor() {
-    let intro = {
+    this.intro = {
       page: Boolean(true),
       get IntroPage() {
         return this.page;
@@ -11,3 +11,5 @@ class Base {
     };
   }
 }
+
+export default Base;
