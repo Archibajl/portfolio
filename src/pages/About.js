@@ -1,4 +1,4 @@
-import "./About.css";
+import "../styles/About.css";
 import React from "react";
 
 function About() {

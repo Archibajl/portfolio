@@ -1,4 +1,4 @@
-import "./HomePage.css";
+import "../styles/HomePage.css";
 import selfImg from "../images/DSC02218.JPG";
 
 function HomePage() {
@@ -18,7 +18,7 @@ function HomePage() {
           <h1 className="h1H">About Me</h1>
 
           <p>
-            I’m a software engineer with a B.S. in Computer Science from the
+            I'm a software engineer with a B.S. in Computer Science from the
             University of Colorado Colorado Springs (UCCS). Before transitioning
             into software, I served in the U.S. Air Force as an aircraft
             maintainer, including roles in crash recovery and shift leadership.
@@ -26,7 +26,7 @@ function HomePage() {
 
           <p>
             I enjoy building reliable systems end-to-end — from backend services
-            and APIs to user-facing applications — and I’m especially interested
+            and APIs to user-facing applications — and I'm especially interested
             in data-driven software and applied machine learning. My strongest
             languages include Java, Python, C#, and C++, with experience using
             SQL and modern development workflows (Git, CI/CD, Docker, Linux).
@@ -39,17 +39,19 @@ function HomePage() {
           </p>
 
           <p>
-            I’m currently seeking roles in{" "}
+            I'm currently seeking roles in{" "}
             <strong>Software Engineering</strong>,{" "}
             <strong>Machine Learning / Data</strong>, or{" "}
             <strong>backend / systems development</strong>.
           </p>
         </section>
-
-        <aside className="profile">
-          <img src={selfImg} className="self" alt="Portrait of Justin Archibald" />
-        </aside>
       </main>
+
+      <img
+        src={selfImg}
+        className="bottom-image"
+        alt="waterfall"
+      />
     </div>
   );
 }

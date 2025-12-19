@@ -1,4 +1,4 @@
-import "./ReactPgs.css";
+import "../styles/ReactPgs.css";
 
 function ReactPgs() {
   return (
