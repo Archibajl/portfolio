@@ -1,49 +1,114 @@
+/* Page wrapper */
+.home-page {
+  min-height: 100vh;
+  color: white;
+}
+
+/* Header: background image hero */
 .home-header {
   background-image: url(../images/DSC02935.JPG);
   background-size: cover;
+  /* preserves aspect ratio */
   background-position: center;
-  background-clip: content-box;
-  min-height: 130vh;
+  /* nice crop */
+  background-repeat: no-repeat;
+  /* no tiling */
+  min-height: 55vh;
+  /* was 130vh (too tall) */
+
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+  padding: 2.5rem 1.5rem;
 
-.home-page {
-  font-size: 3vh;
-  background-color: #282c35;
-  background-size: cover;
-  color: white;
-}
-
-.home-body {
-  align-self: center;
-  margin: 0;
-  border-bottom: 3vh;
-  background: #282c34;
-  color: white;
-  padding: 10%;
-}
-
-.self {
-  border-radius: 5%;
-
+  /* readable overlay */
   position: relative;
-  left: 4%;
+}
 
-  width: 90%;
-  height: 40vh;
+.home-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  /* dark overlay for readability */
 }
-.h1H {
-  text-align: center;
+
+.home-header>* {
+  position: relative;
+  /* keep text above overlay */
+  z-index: 1;
 }
+
+/* Name */
 .h2 {
   color: #66ccff;
-  padding-left: 10%;
-  padding-top: 5%;
+  margin: 0;
 }
-.homePage {
-  background-color: #000000;
-  background-image: none;
+
+/* Tagline under name (add this class in JSX) */
+.home-tagline {
+  margin-top: 0.75rem;
+  max-width: 60ch;
+  font-size: calc(12px + 1vmin);
+  opacity: 0.95;
+}
+
+/* Body layout */
+.home-body {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+/* About section card for readability over any page background */
+.about {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 1.5rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.h1H {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Profile image container */
+.profile {
+  display: flex;
+  justify-content: center;
+}
+
+/* Image styling */
+.self {
+  border-radius: 12px;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  /* preserve aspect ratio */
+  object-fit: cover;
+  /* safe if you later constrain height */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .home-body {
+    grid-template-columns: 1fr;
+  }
+
+  .home-header {
+    min-height: 45vh;
+  }
+
+  .self {
+    max-width: 520px;
+  }
 }
