@@ -1,18 +1,115 @@
-.rct-page {
-  background: url(../images/IMG_0020.png) no-repeat center center fixed;
+/* Full-page background image */
+.react-projects,
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  background-image: url(../images/IMG_0020.png);
+  background-repeat: no-repeat;
   background-size: cover;
-  position: fixed;
-
-  left: 0;
-
-  width: 100%;
-  height: 100%;
-  padding: 10%;
-  margin: 0;
+  background-position: center center;
+  background-attachment: fixed;
 }
-.rct-header {
-  background: #282c34;
-  color: white;
+
+/* Page container */
+.react-projects-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Header section */
+.react-projects-header h1 {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+
+.react-projects-header p {
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+/* Each side project card */
+.side-project-card {
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffffff;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Project header with title and status */
+.project-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.side-project-card h2 {
   margin: 0;
-  padding: 2%;
+  flex: 1;
+}
+
+/* Status badge */
+.project-status {
+  font-size: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-completed {
+  background: rgba(34, 197, 94, 0.2);
+  color: #86efac;
+  border: 1px solid #86efac;
+}
+
+.status-in-progress {
+  background: rgba(59, 130, 246, 0.2);
+  color: #93c5fd;
+  border: 1px solid #93c5fd;
+}
+
+.status-planning {
+  background: rgba(168, 85, 247, 0.2);
+  color: #c4b5fd;
+  border: 1px solid #c4b5fd;
+}
+
+/* Links */
+.side-project-card a {
+  color: #7dd3fc;
+  text-decoration: none;
+}
+
+.side-project-card a:hover {
+  text-decoration: underline;
+}
+
+/* Tech tags */
+.project-tags {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+}
+
+/* Description text */
+.project-description {
+  line-height: 1.55;
+  margin-bottom: 0;
 }
