@@ -22,6 +22,11 @@ jobs:
           # Install Heroku CLI
           curl https://cli-assets.heroku.com/install.sh | sh
 
+          # Configure git credentials
+          git config --global credential.helper store
+          echo "https://heroku:${HEROKU_API_KEY}@git.heroku.com" > ~/.git-credentials
+          chmod 600 ~/.git-credentials
+
           # Add Heroku git remote
           heroku git:remote -a ${{ secrets.HEROKU_APP_NAME }}
 
