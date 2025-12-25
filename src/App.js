@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React from "react";

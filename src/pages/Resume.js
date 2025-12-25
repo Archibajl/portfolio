@@ -1,4 +1,4 @@
-import "./Resume.css";
+import "../styles/Resume.css";
 
 const CONTACT = {
   name: "Justin Archibald",
