@@ -22,11 +22,11 @@ describe('HomePage Component', () => {
     expect(screen.getByText(/about me/i)).toBeInTheDocument();
   });
 
-  test('displays profile image with correct alt text', () => {
+  test('displays bottom image', () => {
     render(<HomePage />);
-    const image = screen.getByAltText(/portrait of justin archibald/i);
+    const image = screen.getByAltText(/waterfall/i);
     expect(image).toBeInTheDocument();
-    expect(image).toHaveClass('self');
+    expect(image).toHaveClass('bottom-image');
   });
 
   test('mentions key technologies', () => {
