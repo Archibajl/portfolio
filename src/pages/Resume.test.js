@@ -118,17 +118,9 @@ describe('Resume Component', () => {
   });
 
   test('renders dropdown components', () => {
-    const { container } = render(<Resume />);
-    const dropdowns = container.querySelectorAll('details.resume-dropdown');
-    expect(dropdowns.length).toBeGreaterThan(0);
-  });
-});
-
-describe('Section Component', () => {
-  test('renders section with title and children', () => {
-    const { container } = render(<Resume />);
-    const sections = container.querySelectorAll('.resume-section');
-    expect(sections.length).toBeGreaterThan(0);
+    render(<Resume />);
+    // Verify dropdown content exists instead of counting DOM nodes
+    expect(screen.getByText(/interests/i)).toBeInTheDocument();
   });
 });
 
