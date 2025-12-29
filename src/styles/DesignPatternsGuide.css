@@ -1,3 +1,5 @@
+
+
 .dpg-page{
     max-width: 1100px;
     margin: 0 auto;
@@ -14,7 +16,7 @@
     margin-bottom:16px;
   }
   .dpg-title{ font-size: 28px; line-height: 1.15; margin: 0; }
-  .dpg-subtitle{ margin: 8px 0 0; color:#334155; max-width: 70ch; }
+  .dpg-subtitle{ margin: 8px 0 0; color:#334155; max-width: 75ch; }
   .dpg-meta{ display:flex; align-items:center; gap:12px; }
   .dpg-count{ color:#334155; background:#f1f5f9; padding:8px 10px; border-radius:12px; border:1px solid #e2e8f0; }
   .dpg-viewToggle{ display:flex; gap:8px; }
@@ -25,7 +27,7 @@
     border-radius: 16px;
     padding: 14px;
     box-shadow: 0 6px 22px rgba(15, 23, 42, 0.06);
-    margin-bottom: 18px;
+    margin-bottom: 14px;
   }
   .dpg-search{ margin-bottom: 12px; }
   .dpg-grid{
@@ -77,6 +79,32 @@
     border-color:#0f172a;
   }
 
+  .dpg-glossary{
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background:#fff;
+    overflow:hidden;
+    margin-bottom: 16px;
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+  }
+  .dpg-glossaryBody{ padding: 12px; }
+  .dpg-glossaryGrid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  @media (max-width: 900px){ .dpg-glossaryGrid{ grid-template-columns: 1fr; } }
+  .dpg-glossaryItem{
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 12px;
+    background:#ffffff;
+  }
+  .dpg-glossaryKey{ font-weight: 900; font-size: 14px; }
+  .dpg-glossaryExpansion{ color:#334155; font-weight: 700; margin-top: 4px; }
+  .dpg-glossaryExplain{ color:#334155; margin-top: 6px; font-size: 13px; line-height: 1.35; }
+  .dpg-summaryGlossary{ background:#0f172a; color:#fff; border-bottom: 1px solid #0f172a; }
+
   .dpg-main{ display:flex; flex-direction:column; gap: 12px; }
   .dpg-section{
     border: 1px solid #e2e8f0;
@@ -125,7 +153,9 @@
   }
   .dpg-cardTitle{ margin: 0; font-size: 18px; }
   .dpg-cardTop{ display:flex; flex-direction:column; gap: 8px; }
-  .dpg-notes{ margin: 0; color:#334155; }
+  .dpg-notes{ margin: 0; color:#0f172a; }
+  .dpg-oneLiner{ font-weight: 900; }
+  .dpg-desc{ margin: 0; color:#334155; line-height: 1.4; }
 
   .dpg-row{
     display:flex;
@@ -171,6 +201,7 @@
     background:#0f172a;
     color:#fff;
     font-weight: 800;
+    vertical-align: top;
   }
   .dpg-table td{
     padding: 10px 12px;
@@ -179,6 +210,8 @@
     color:#0f172a;
   }
   .dpg-tdStrong{ font-weight: 800; }
+  .dpg-tableNotes{ font-weight: 900; margin-bottom: 6px; }
+  .dpg-tableDesc{ color:#334155; line-height: 1.35; }
 
   .dpg-empty{
     border: 1px dashed #cbd5e1;

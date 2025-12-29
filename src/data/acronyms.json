@@ -1,0 +1,122 @@
+[
+  {
+    "key": "GoF",
+    "expansion": "Gang of Four",
+    "explanation": "Refers to the authors of the classic book 'Design Patterns' (Gamma, Helm, Johnson, Vlissides). Often used to label the original OO patterns set."
+  },
+  {
+    "key": "OOP",
+    "expansion": "Object-Oriented Programming",
+    "explanation": "Programming style organized around objects/classes (encapsulation, inheritance, polymorphism)."
+  },
+  {
+    "key": "FP",
+    "expansion": "Functional Programming",
+    "explanation": "Programming style emphasizing pure functions, immutability, and function composition."
+  },
+  {
+    "key": "CRUD",
+    "expansion": "Create, Read, Update, Delete",
+    "explanation": "Common set of operations for data-driven applications."
+  },
+  {
+    "key": "API",
+    "expansion": "Application Programming Interface",
+    "explanation": "A contract for interacting with software components (functions, endpoints, types, protocols)."
+  },
+  {
+    "key": "SDK",
+    "expansion": "Software Development Kit",
+    "explanation": "A packaged set of tools/libraries/docs for building against a platform/service."
+  },
+  {
+    "key": "UI",
+    "expansion": "User Interface",
+    "explanation": "The part of an application users interact with (screens, controls, layout, inputs)."
+  },
+  {
+    "key": "I/O",
+    "expansion": "Input/Output",
+    "explanation": "Reading/writing data (files, network, streams, devices, stdout/stderr, etc.)."
+  },
+  {
+    "key": "HTTP",
+    "expansion": "Hypertext Transfer Protocol",
+    "explanation": "The primary protocol of the web used by browsers and APIs."
+  },
+  {
+    "key": "RPC",
+    "expansion": "Remote Procedure Call",
+    "explanation": "Calling a function/method on another machine/process as if it were local (e.g., gRPC, JSON-RPC)."
+  },
+  {
+    "key": "AST",
+    "expansion": "Abstract Syntax Tree",
+    "explanation": "Tree representation of source code structure used by compilers, linters, and code analyzers."
+  },
+  {
+    "key": "ORM",
+    "expansion": "Object-Relational Mapping",
+    "explanation": "Maps objects/classes to database tables (and vice versa) to simplify persistence."
+  },
+  {
+    "key": "DB",
+    "expansion": "Database",
+    "explanation": "A system for storing and querying structured data (SQL/NoSQL)."
+  },
+  {
+    "key": "DTO",
+    "expansion": "Data Transfer Object",
+    "explanation": "A simple object used to move data between layers/services (often without behavior)."
+  },
+  {
+    "key": "CQRS",
+    "expansion": "Command Query Responsibility Segregation",
+    "explanation": "Architectural pattern separating write commands from read queries and often using different models for each."
+  },
+  {
+    "key": "SOA",
+    "expansion": "Service-Oriented Architecture",
+    "explanation": "Architecture style organizing systems as reusable services with well-defined interfaces (often enterprise-focused)."
+  },
+  {
+    "key": "CSP",
+    "expansion": "Communicating Sequential Processes",
+    "explanation": "Concurrency model where independent processes communicate via message passing (often channels)."
+  },
+  {
+    "key": "MVC",
+    "expansion": "Model–View–Controller",
+    "explanation": "UI architecture separating data/model, rendering/view, and interaction/controller logic."
+  },
+  {
+    "key": "MVP",
+    "expansion": "Model–View–Presenter",
+    "explanation": "UI architecture where Presenter contains most view logic; typically easier to unit test than classic MVC."
+  },
+  {
+    "key": "MVVM",
+    "expansion": "Model–View–ViewModel",
+    "explanation": "UI architecture where ViewModel exposes observable state for data binding."
+  },
+  {
+    "key": "WPF",
+    "expansion": "Windows Presentation Foundation",
+    "explanation": "A .NET UI framework that popularized MVVM patterns with data binding."
+  },
+  {
+    "key": "JVM",
+    "expansion": "Java Virtual Machine",
+    "explanation": "Runtime that executes Java bytecode; many languages target it (Java, Kotlin, Scala, etc.)."
+  },
+  {
+    "key": ".NET",
+    "expansion": ".NET Platform",
+    "explanation": "Microsoft runtime/platform for languages like C#; includes libraries, tooling, and runtimes."
+  },
+  {
+    "key": "ECS",
+    "expansion": "Entity Component System",
+    "explanation": "Game architecture pattern organizing entities as IDs with data components and behavior systems (composition over inheritance)."
+  }
+]
