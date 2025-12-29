@@ -643,8 +643,6 @@ export default function DesignPatternsGuide() {
 
   return (
     <div className="dpg-page">
-      <style>{CSS}</style>
-
       <header className="dpg-header">
         <div>
           <h1 className="dpg-title">Software Design Patterns — Quick Reference</h1>
