@@ -1,0 +1,135 @@
+/* Page wrapper */
+.home-page {
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.home-header {
+  background-image: url(../images/DSC02935.JPG);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 60vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 3rem 1.5rem;
+  position: relative;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .home-header {
+    min-height: 50vh;
+    padding: 2rem 1.25rem;
+  }
+
+  .home-body {
+    padding: 1.5rem 1rem;
+  }
+
+  .about {
+    padding: 1.5rem;
+  }
+}
+
+.home-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 0;
+}
+
+.home-header > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Name */
+.h2 {
+  color: #66ccff;
+  margin: 0;
+}
+
+/* Tagline under name (add this class in JSX) */
+.home-tagline {
+  margin-top: 0.75rem;
+  max-width: 60ch;
+  font-size: calc(12px + 1vmin);
+  opacity: 0.95;
+}
+
+/* Body layout */
+.home-body {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* About section card for readability over any page background */
+.about {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  max-width: 800px;
+  width: 100%;
+}
+
+.h1 {
+  text-align: center;
+  padding: 1rem;
+  margin: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.h1H {
+  text-align: center;
+  margin-top: 0;
+}
+
+/* Profile image container */
+.profile {
+  display: flex;
+  justify-content: center;
+}
+
+/* Bottom image */
+.bottom-image {
+  position: relative;
+  display: block;
+  margin: 2rem auto 0;
+
+  width: min(380px, 90%);
+  max-width: 100%;
+  height: auto;
+
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
+  z-index: -1;
+  opacity: 0.7;
+}
+
+@media (max-width: 700px) {
+  .bottom-image {
+    width: min(300px, 85%);
+    margin-top: 1.5rem;
+  }
+}

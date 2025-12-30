@@ -1,63 +1,57 @@
-import "./HomePage.css";
+import "../styles/HomePage.css";
 import selfImg from "../images/DSC02218.JPG";
 
 function HomePage() {
-  let aboutMe = (
-    <text>
-      <br />
-      New grad in Computer Science. Formerly an Aircraft mechanic for the U.S.
-      Airforce where i worked as a maintainer, Crash recovery team member,
-      Inspection team member, and suport sectoin shift lead.
-      <br /> I have recently obtained a Bachelors of Science degree in Comuter
-      Science from the University of Colorado at Colorado Springs and now find
-      myself looking for employment.
-      <br />
-      The skills i am best at are general programming involving the C family of
-      languages including C++ and C#, Java, Python, and SQL to a lesser degree.
-      <br /> Unique projects i have worked in include coursework in Artificial
-      Neural Networks otherwise known as Deep Learning, Database programming in
-      MySQL, and a few projects involving process threading and TCP/IP
-      communication, and Udemy to a lesser degree.
-      <br /> Another skill which may not be relevant is windows forms
-      applications using Visual Studio. In the rhealm of web development I have
-      managed to learn a functional amount of HTML5, CSS, and React using Atom
-      and yarn. In web development I can write functioning web-pages and using
-      skills aquired from other programming experience, I shouldn't have a
-      problem making back-end work either.
-      <br /> Currently I am looking for jobs preferably involving Software
-      Engineering/Development and or Machine learning, however I would also be
-      happy with applications, embeded systems.
-    </text>
-  );
-
-  //  aboutMe = aboutMe.forEach((string) => string.where((st == \n) => <br />));
-
   return (
     <div className="home-page">
       <h1 className="h1">Portfolio</h1>
-      <head
-        className="home-header"
-        alt="Image of Himeji Castle at night in Himeji city"
-      >
-        <h2 className="h2">Justin Archibald</h2>
-      </head>
-      <body className="home-body">
-        <h1 className="h1H">About me</h1>
 
-        <p>
-          <text>{aboutMe}</text>
-          <br />
-          <br />
-          <br />
-          <br />
+      <header className="home-header">
+        <h2 className="h2">Justin Archibald</h2>
+        <p className="home-tagline">
+          Software Engineer • ML/Data • Former Crash Recovery Specialist & Team Lead
         </p>
-        <img
-          src={selfImg}
-          className="self"
-          alt="shaped waterfall image"
-          keywords=""
-        />
-      </body>
+      </header>
+
+      <main className="home-body">
+        <section className="about">
+          <h1 className="h1H">About Me</h1>
+
+          <p>
+            I'm a software engineer with a B.S. in Computer Science from the
+            University of Colorado Colorado Springs (UCCS). Before transitioning
+            into software, I served in the U.S. Air Force as an aircraft
+            maintainer, including roles in crash recovery and shift leadership.
+          </p>
+
+          <p>
+            I enjoy building reliable systems end-to-end — from backend services
+            and APIs to user-facing applications — and I'm especially interested
+            in data-driven software and applied machine learning. My strongest
+            languages include Java, Python, C#, and C++, with experience using
+            SQL and modern development workflows (Git, CI/CD, Docker, Linux).
+          </p>
+
+          <p>
+            Recent work includes projects in neural networks (ANN/CNN/LSTM),
+            database-backed applications, multithreading and TCP/IP networking,
+            and full-stack web development with React and Node/Express.
+          </p>
+
+          <p>
+            I'm currently seeking roles in{" "}
+            <strong>Software Engineering</strong>,{" "}
+            <strong>Machine Learning / Data</strong>, or{" "}
+            <strong>backend / systems development</strong>.
+          </p>
+        </section>
+      </main>
+
+      <img
+        src={selfImg}
+        className="bottom-image"
+        alt="waterfall"
+      />
     </div>
   );
 }

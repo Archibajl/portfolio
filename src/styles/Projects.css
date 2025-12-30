@@ -1,0 +1,129 @@
+/* .projects {
+  background: url(../images/IMAG1080.jpg) no-repeat center center fixed;
+  background-size: cover;
+  background-position: fixed;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  margin: 0;
+} */
+
+/* Full-page background image */
+.projects,
+.resume-tab,
+body {
+  min-height: 100vh;
+  margin: 0;
+
+  background-image: url(../images/IMAG1080.jpg);
+  background-repeat: no-repeat;
+  /* no tiling */
+  background-size: cover;
+  /* preserve aspect ratio */
+  background-position: center center;
+  /* crop evenly */
+  background-attachment: fixed;
+  /* optional: parallax-style */
+}
+
+.projects-page h1 {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 0.75rem 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+}
+
+/* .projects-page {
+  background: #282c34;
+  color: white;
+  margin: 0;
+  padding: 5%;
+} */
+
+.st-Lstm {
+  color: #61dafb;
+}
+
+.CS-proj {
+  color: #61dafb;
+}
+
+.ANN-proj {
+  color: #61dafb;
+}
+
+.projects-page {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* .project-card {
+  margin-bottom: 1.75rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+} */
+
+.project-card h2 {
+  margin-bottom: 0.25rem;
+}
+
+/* .project-tags {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+} */
+
+.project-description {
+  line-height: 1.5;
+}
+
+/* Page container stays transparent over background image */
+.projects-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+/* Each repo/project card */
+.project-card {
+  background: rgba(0, 0, 0, 0.75);
+  /* dark translucent background */
+  color: #ffffff;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1.75rem;
+  border-radius: 10px;
+
+  /* optional polish */
+  backdrop-filter: blur(4px);
+  /* works in modern browsers */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* Links */
+.project-card a {
+  color: #7dd3fc;
+  /* readable blue */
+  text-decoration: none;
+}
+
+.project-card a:hover {
+  text-decoration: underline;
+}
+
+/* Tech tags */
+.project-tags {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 0.5rem;
+}
+
+/* Description text */
+.project-description {
+  line-height: 1.55;
+}

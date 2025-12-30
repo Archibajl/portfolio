@@ -1,38 +1,29 @@
-import "./App.css";
+import "./styles/App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import React from "react";
-import ReactDOM from "react-dom";
 import Projects from "./pages/Projects.js";
 import ReactPgs from "./pages/ReactPgs.js";
 import Resume from "./pages/Resume.js";
-//import Heading from "./components/Heading";
 import About from "./pages/About.js";
 import Home from "./pages/HomePage";
 import Landing from "./components/Landing.js";
 import Nav from "react-bootstrap/Nav";
-import Dropdown from "react-bootstrap";
 import lnkInImg from "./images/linkedIn_PNG32.png";
 import {
-  Form,
-  FormControl,
-  Button,
   Navbar,
   Container,
-  NavLink,
   NavItem,
-  NavDropdown,
 } from "react-bootstrap";
-
-ReactDOM.render(<></>, document.getElementById("root"));
-ReactDOM.render(<App />, document.getElementById("root"));
 
 function App() {
   return (
     <div className="App">
-      <Router default="/components/Landing" element={<Landing/>}>
+      <Router>
         <Routes>
-        <Route path="//components/Landing" element={<div>
+        <Route path="/components/Landing" element={<div>
+            <Landing /> </div>} />
+        <Route path="/" element={<div>
             <Landing /> </div>} />
           <Route path="/pages/HomePage" element={<div>
             <Heading />
@@ -75,7 +66,7 @@ function Heading() {
   //Produces header navbar with links to internal and external pages.
   return (
     <>
-      <header class="heading">
+      <header className="heading">
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
             <Navbar.Brand href="">Menu</Navbar.Brand>
@@ -119,7 +110,7 @@ function Footer() {
   //Link footer/link to about page for this website
   return (
     <>
-      <footer class="footer">
+      <footer className="footer">
         <nav>
           <ul className="links">
             <Link to="/pages/About" className="about">
