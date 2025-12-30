@@ -6,6 +6,7 @@ import React, { useMemo, useState } from "react";
 import "../styles/DesignPatternsGuide.css";
 import ACRONYMS from "../data/acronyms.json";
 import GUIDE from "../data/design-patterns.json";
+import { AcronymWrapper } from "../components/AcronymWrapper";
 
 // Note: ACRONYMS and GUIDE data are now in separate JSON files at:
 // - src/data/acronyms.json
@@ -54,7 +55,7 @@ export default function DesignPatternsGuide() {
   const [section, setSection] = useState("(any)");
   const [view, setView] = useState("cards"); // "cards" | "table"
   const [openAll, setOpenAll] = useState(false);
-  const [showGlossary, setShowGlossary] = useState(true);
+  const [showGlossary, setShowGlossary] = useState(false);
   const [glossaryQuery, setGlossaryQuery] = useState("");
 
   const filtered = useMemo(() => {
@@ -122,7 +123,7 @@ export default function DesignPatternsGuide() {
           <h1 className="dpg-title">Software Design Patterns — Quick Reference</h1>
           <p className="dpg-subtitle">
             Filter by development type, pattern category, paradigm, and language.
-            Includes a built-in acronym glossary (GoF, CQRS, MVC, etc.).
+            Includes a built-in acronym glossary (<AcronymWrapper acronyms={ACRONYMS}>GoF, CQRS, MVC</AcronymWrapper>, etc.).
           </p>
         </div>
 
@@ -185,40 +186,6 @@ export default function DesignPatternsGuide() {
         </div>
       </section>
 
-      {showGlossary && (
-        <details className="dpg-glossary" open>
-          <summary className="dpg-summary dpg-summaryGlossary">
-            <span className="dpg-sectionTitle">Acronym glossary</span>
-            <span className="dpg-badge">{glossaryFiltered.length}</span>
-          </summary>
-
-          <div className="dpg-glossaryBody">
-            <div className="dpg-search">
-              <label className="dpg-label" htmlFor="dpg-gq">
-                Search acronyms
-              </label>
-              <input
-                id="dpg-gq"
-                className="dpg-input"
-                placeholder="Try: 'CQRS', 'GoF', 'AST', 'ORM'…"
-                value={glossaryQuery}
-                onChange={(e) => setGlossaryQuery(e.target.value)}
-              />
-            </div>
-
-            <div className="dpg-glossaryGrid">
-              {glossaryFiltered.map((t) => (
-                <div key={t.key} className="dpg-glossaryItem">
-                  <div className="dpg-glossaryKey">{t.key}</div>
-                  <div className="dpg-glossaryExpansion">{t.expansion}</div>
-                  <div className="dpg-glossaryExplain">{t.explanation}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </details>
-      )}
-
       {view === "table" ? (
         <section className="dpg-tableWrap" aria-label="Pattern table">
           <table className="dpg-table">
@@ -246,8 +213,12 @@ export default function DesignPatternsGuide() {
                     <td>{(item.bestFor || []).join(", ")}</td>
                     <td>{(item.languages || []).join(", ")}</td>
                     <td>
-                      <div className="dpg-tableNotes">{item.notes}</div>
-                      <div className="dpg-tableDesc">{item.description}</div>
+                      <div className="dpg-tableNotes">
+                        <AcronymWrapper acronyms={ACRONYMS}>{item.notes}</AcronymWrapper>
+                      </div>
+                      <div className="dpg-tableDesc">
+                        <AcronymWrapper acronyms={ACRONYMS}>{item.description}</AcronymWrapper>
+                      </div>
                     </td>
                   </tr>
                 ))}
@@ -259,7 +230,9 @@ export default function DesignPatternsGuide() {
           {grouped.map((group) => (
             <details className="dpg-section" key={group.section} open={openAll}>
               <summary className="dpg-summary">
-                <span className="dpg-sectionTitle">{group.section}</span>
+                <span className="dpg-sectionTitle">
+                  <AcronymWrapper acronyms={ACRONYMS}>{group.section}</AcronymWrapper>
+                </span>
                 <span className="dpg-badge">{group.items.length}</span>
               </summary>
 
@@ -277,9 +250,13 @@ export default function DesignPatternsGuide() {
                     </div>
 
                     <p className="dpg-notes">
-                      <strong className="dpg-oneLiner">{item.notes}</strong>
+                      <strong className="dpg-oneLiner">
+                        <AcronymWrapper acronyms={ACRONYMS}>{item.notes}</AcronymWrapper>
+                      </strong>
                     </p>
-                    <p className="dpg-desc">{item.description}</p>
+                    <p className="dpg-desc">
+                      <AcronymWrapper acronyms={ACRONYMS}>{item.description}</AcronymWrapper>
+                    </p>
 
                     <div className="dpg-row">
                       <div className="dpg-rowLabel">Best fit</div>
@@ -317,8 +294,42 @@ export default function DesignPatternsGuide() {
       )}
 
       <footer className="dpg-footer">
-        <span>Tip: In FP codebases, “Strategy” often becomes “pass a function”.</span>
+        <span>Tip: In FP codebases, "Strategy" often becomes "pass a function".</span>
       </footer>
+
+      {showGlossary && (
+        <details className="dpg-glossary">
+          <summary className="dpg-summary dpg-summaryGlossary">
+            <span className="dpg-sectionTitle">Acronym glossary</span>
+            <span className="dpg-badge">{glossaryFiltered.length}</span>
+          </summary>
+
+          <div className="dpg-glossaryBody">
+            <div className="dpg-search">
+              <label className="dpg-label" htmlFor="dpg-gq">
+                Search acronyms
+              </label>
+              <input
+                id="dpg-gq"
+                className="dpg-input"
+                placeholder="Try: 'CQRS', 'GoF', 'AST', 'ORM'…"
+                value={glossaryQuery}
+                onChange={(e) => setGlossaryQuery(e.target.value)}
+              />
+            </div>
+
+            <div className="dpg-glossaryGrid">
+              {glossaryFiltered.map((t) => (
+                <div key={t.key} className="dpg-glossaryItem">
+                  <div className="dpg-glossaryKey">{t.key}</div>
+                  <div className="dpg-glossaryExpansion">{t.expansion}</div>
+                  <div className="dpg-glossaryExplain">{t.explanation}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </details>
+      )}
     </div>
   );
 }
