@@ -118,5 +118,45 @@
     "key": "ECS",
     "expansion": "Entity Component System",
     "explanation": "Game architecture pattern organizing entities as IDs with data components and behavior systems (composition over inheritance)."
+  },
+  {
+    "key": "DDD",
+    "expansion": "Domain-Driven Design",
+    "explanation": "An approach to designing software around the business domain model, emphasizing ubiquitous language, bounded contexts, and domain-centric architecture."
+  },
+  {
+    "key": "DI",
+    "expansion": "Dependency Injection",
+    "explanation": "A technique where dependencies are provided to a component instead of being created inside it, improving testability and modularity."
+  },
+  {
+    "key": "IoC",
+    "expansion": "Inversion of Control",
+    "explanation": "A principle where control flow is inverted so that frameworks or containers call your code rather than your code calling the framework directly."
+  },
+  {
+    "key": "DLQ",
+    "expansion": "Dead Letter Queue",
+    "explanation": "A queue where messages that cannot be processed successfully are placed for later inspection, retry, or manual handling."
+  },
+  {
+    "key": "RBAC",
+    "expansion": "Role-Based Access Control",
+    "explanation": "An authorization model where permissions are granted to roles, and users inherit permissions through assigned roles."
+  },
+  {
+    "key": "ABAC",
+    "expansion": "Attribute-Based Access Control",
+    "explanation": "An authorization model that evaluates access based on attributes (user, resource, environment) and policies, offering more flexibility than RBAC."
+  },
+  {
+    "key": "OIDC",
+    "expansion": "OpenID Connect",
+    "explanation": "An identity layer on top of OAuth 2.0 that standardizes user authentication and identity claims."
+  },
+  {
+    "key": "OAuth2",
+    "expansion": "OAuth 2.0",
+    "explanation": "An authorization framework that enables delegated access to resources via tokens."
   }
 ]

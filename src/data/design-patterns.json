@@ -1140,5 +1140,288 @@
         "description": "Persistent data structures preserve old versions efficiently using structural sharing. Combined with immutability, they simplify reasoning about state, improve concurrency safety, and enable features like undo/history."
       }
     ]
-  }
+  },
+
+    {
+      "section": "Domain-Driven Design (DDD)",
+      "items": [
+        {
+          "name": "Entity",
+          "bestFor": ["Complex domain models", "Business systems with identity"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Most languages"],
+          "notes": "Domain object defined by identity, not attributes.",
+          "description": "An Entity is a domain object primarily defined by a stable identity (ID) that persists across changes to its attributes. Two entities can have identical fields but still represent different real-world things if their identities differ."
+        },
+        {
+          "name": "Value Object",
+          "bestFor": ["Domain modeling", "Validation", "Immutability"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Functional"],
+          "languages": ["Most languages"],
+          "notes": "A domain value defined by its attributes; typically immutable.",
+          "description": "A Value Object represents a concept like Money, EmailAddress, or Coordinate and is defined only by its values (no identity). They are commonly immutable and can embed validation rules, making illegal states harder to represent."
+        },
+        {
+          "name": "Aggregate",
+          "bestFor": ["Consistency boundaries", "Transactional correctness", "Domain invariants"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Most languages"],
+          "notes": "A consistency boundary with an Aggregate Root entry point.",
+          "description": "An Aggregate is a cluster of related domain objects treated as a single unit for changes. The Aggregate Root is the only object that external code can use to mutate the aggregate, enforcing business invariants and consistency rules."
+        },
+        {
+          "name": "Aggregate Root",
+          "bestFor": ["Enforcing invariants", "Limiting writes", "Modeling boundaries"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Most languages"],
+          "notes": "The entry point for modifying an aggregate.",
+          "description": "The Aggregate Root is the primary entity inside an aggregate that controls access to other members. All changes go through it so it can enforce invariants (e.g., Order controls modifications to OrderItems)."
+        },
+        {
+          "name": "Bounded Context",
+          "bestFor": ["Large systems", "Multiple teams", "Reducing model ambiguity"],
+          "patternType": "DDD",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "A boundary where a model and language are consistent.",
+          "description": "A Bounded Context defines the scope in which terms and domain rules have a specific meaning. It prevents a single global model from becoming inconsistent (e.g., 'Customer' might mean different things in Billing vs Support)."
+        },
+        {
+          "name": "Context Mapping",
+          "bestFor": ["Multi-context systems", "Integration strategy", "Managing dependencies"],
+          "patternType": "DDD",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Defines relationships and integration styles between contexts.",
+          "description": "Context Mapping describes how bounded contexts interact (upstream/downstream, conformist, customer/supplier, ACL). It’s a strategic tool to manage coupling and keep boundaries intact as the system evolves."
+        },
+        {
+          "name": "Domain Event",
+          "bestFor": ["Event-driven workflows", "Decoupling side effects", "Auditing"],
+          "patternType": "DDD",
+          "paradigms": ["Reactive", "OOP", "Functional"],
+          "languages": ["Most languages"],
+          "notes": "A record that something meaningful happened in the domain.",
+          "description": "A Domain Event represents a significant business occurrence (e.g., OrderPlaced). Publishing domain events decouples core domain logic from side effects like notifications, analytics, or projections, and fits naturally with event-driven architectures."
+        },
+        {
+          "name": "Domain Service",
+          "bestFor": ["Domain logic that spans multiple entities", "Rules that don’t belong to one object"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Most languages"],
+          "notes": "Domain behavior expressed as a service when it doesn’t fit a single object.",
+          "description": "A Domain Service contains domain logic that conceptually belongs to the domain but not to a single Entity or Value Object. It should speak the ubiquitous language and avoid infrastructure concerns (DB, HTTP, messaging)."
+        },
+        {
+          "name": "Application Service",
+          "bestFor": ["Use-case orchestration", "Transaction coordination", "API boundary workflows"],
+          "patternType": "DDD / Application layer",
+          "paradigms": ["Any"],
+          "languages": ["Most languages"],
+          "notes": "Coordinates a use case; delegates business rules to the domain model.",
+          "description": "An Application Service orchestrates a use case (e.g., PlaceOrder) by calling domain objects, repositories, and external services. It should contain minimal business rules, focusing on workflow and integration."
+        },
+        {
+          "name": "Anti-Corruption Layer (ACL)",
+          "bestFor": ["Legacy integration", "Vendor APIs", "Protecting your domain model"],
+          "patternType": "DDD / Integration",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Translate between external models and your domain model.",
+          "description": "An Anti-Corruption Layer prevents external or legacy models from contaminating your core domain by translating data and behavior at the boundary. It often uses adapters, mappers, and facades to isolate differences."
+        }
+      ]
+    },
+    {
+      "section": "Architecture / Composition",
+      "items": [
+        {
+          "name": "Dependency Injection (DI)",
+          "bestFor": ["Testability", "Modular codebases", "Swappable implementations"],
+          "patternType": "Architecture / Composition",
+          "paradigms": ["OOP", "Imperative", "Functional"],
+          "languages": ["Most languages"],
+          "notes": "Provide dependencies from outside instead of constructing them internally.",
+          "description": "Dependency Injection supplies a component’s dependencies via parameters (constructor/function) rather than creating them internally. This reduces coupling, improves testability, and makes implementations replaceable."
+        },
+        {
+          "name": "Inversion of Control (IoC) Container",
+          "bestFor": ["Large apps", "Complex object graphs", "Framework-based composition"],
+          "patternType": "Architecture / Composition",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Java", "C#", "TypeScript", "Python"],
+          "notes": "A container builds and wires dependencies based on configuration.",
+          "description": "An IoC container constructs objects and injects dependencies automatically based on configuration, annotations, or registrations. It reduces manual wiring at scale but can hide control flow if overused."
+        },
+        {
+          "name": "Plugin Architecture",
+          "bestFor": ["Extensible apps", "Tooling platforms", "Third-party ecosystems"],
+          "patternType": "Architecture",
+          "paradigms": ["Any"],
+          "languages": ["Most languages"],
+          "notes": "Core system loads optional modules/extensions via stable interfaces.",
+          "description": "Plugin Architecture defines a stable core and extension points so features can be added independently. Common in IDEs, build tools, and platforms with third-party extensions."
+        },
+        {
+          "name": "Feature Flags (Toggles)",
+          "bestFor": ["Safe rollouts", "Progressive delivery", "A/B testing"],
+          "patternType": "Architecture / Delivery",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Switch behavior at runtime without redeploying.",
+          "description": "Feature flags enable/disable behavior dynamically for rollouts and experiments. They require lifecycle management to avoid 'flag debt' and confusing combinations."
+        }
+      ]
+    },
+    {
+      "section": "Caching Patterns",
+      "items": [
+        {
+          "name": "Cache-Aside",
+          "bestFor": ["Read-heavy systems", "Simple caching integration"],
+          "patternType": "Caching",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "App checks cache first; on miss, loads from DB and populates cache.",
+          "description": "Cache-Aside (lazy caching) has the application read from cache first; on miss it loads from the source of truth and then writes into cache. It’s easy to adopt but requires careful invalidation/TTL strategy."
+        },
+        {
+          "name": "Read-Through Cache",
+          "bestFor": ["Centralized caching", "Library-managed caches"],
+          "patternType": "Caching",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Cache automatically loads from the backing store on miss.",
+          "description": "With Read-Through caching, clients request data from the cache, and the cache fetches from the backing store on a miss. This simplifies callers but moves loading complexity into cache configuration."
+        },
+        {
+          "name": "Write-Through Cache",
+          "bestFor": ["Reducing stale reads", "Simpler cache correctness"],
+          "patternType": "Caching",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Write to cache and DB synchronously.",
+          "description": "Write-Through updates the cache and the backing store together. It reduces stale reads but adds write latency and must handle partial failures carefully."
+        },
+        {
+          "name": "Write-Behind (Write-Back) Cache",
+          "bestFor": ["High write throughput", "Low-latency writes"],
+          "patternType": "Caching",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Write to cache first; persist to DB asynchronously.",
+          "description": "Write-Behind buffers writes in cache and persists them asynchronously. It improves write latency and throughput but needs durability guarantees or recovery strategies to avoid data loss."
+        }
+      ]
+    },
+    {
+      "section": "Messaging & Integration Patterns",
+      "items": [
+        {
+          "name": "Message Deduplication",
+          "bestFor": ["At-least-once delivery", "Event-driven systems", "Retry-heavy consumers"],
+          "patternType": "Messaging / Integration",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Prevent duplicate processing when messages repeat.",
+          "description": "Deduplication ensures handlers behave correctly when the same message is delivered more than once. Common approaches include storing processed message IDs, using idempotency keys, or enforcing idempotent handler logic."
+        },
+        {
+          "name": "Inbox Pattern",
+          "bestFor": ["Reliable consumers", "Deduplication", "Exactly-once-ish processing"],
+          "patternType": "Messaging / Integration",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Persist inbound messages before processing to enable safe retries.",
+          "description": "Inbox stores inbound messages in durable storage before processing. The inbox record provides a dedupe key and processing state so retries are safe and messages aren’t lost, complementing the Outbox pattern on the producer side."
+        },
+        {
+          "name": "Dead Letter Queue (DLQ)",
+          "bestFor": ["Poison message handling", "Operational workflows"],
+          "patternType": "Messaging / Operations",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Route repeatedly failing messages for inspection and handling.",
+          "description": "A DLQ holds messages that repeatedly fail processing. It allows alerting, inspection, and remediation without blocking the main queue, improving system reliability and operability."
+        },
+        {
+          "name": "Claim Check",
+          "bestFor": ["Large payload messaging", "Reducing broker load"],
+          "patternType": "Messaging / Integration",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Send a reference to externally stored payload instead of the payload.",
+          "description": "Claim Check stores large payloads in external storage (object store/DB) and sends only a reference in the message. This keeps messages small and avoids broker size/time limits."
+        },
+        {
+          "name": "Delayed Retry Queue",
+          "bestFor": ["Backoff retries", "Smoothing transient failures"],
+          "patternType": "Messaging / Resiliency",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Retry later using delayed delivery or delay queues.",
+          "description": "Instead of retrying immediately, failed messages are routed to a delayed queue and re-enqueued after a wait period. This implements backoff at the messaging layer and reduces overload during outages."
+        }
+      ]
+    },
+    {
+      "section": "Concurrency & Correctness Patterns",
+      "items": [
+        {
+          "name": "Backpressure",
+          "bestFor": ["Streaming systems", "High-throughput pipelines", "Protecting consumers"],
+          "patternType": "Concurrency / Streaming",
+          "paradigms": ["Reactive", "Any"],
+          "languages": ["Any"],
+          "notes": "Signal producers to slow down when consumers are overloaded.",
+          "description": "Backpressure prevents overload by letting consumers communicate demand/capacity so producers don’t emit faster than can be handled. Implemented via bounded queues, reactive-stream demand, or rate limits."
+        },
+        {
+          "name": "Structured Concurrency",
+          "bestFor": ["Async correctness", "Cancellation", "Lifecycle management"],
+          "patternType": "Concurrency",
+          "paradigms": ["Imperative", "Any"],
+          "languages": ["Kotlin", "Swift", "Rust", "Python", "Java (newer)"],
+          "notes": "Tie task lifetimes to a scope; enable safe cancellation and cleanup.",
+          "description": "Structured concurrency organizes tasks into scopes so child tasks can’t outlive their parent. This improves cleanup, cancellation, and error propagation compared to unstructured fire-and-forget async."
+        },
+        {
+          "name": "Snapshot / Immutable State",
+          "bestFor": ["Concurrent reads", "Undo/history", "Deterministic behavior"],
+          "patternType": "Concurrency / State management",
+          "paradigms": ["Functional", "Any"],
+          "languages": ["Most languages"],
+          "notes": "Use immutable snapshots to avoid shared mutable state hazards.",
+          "description": "Snapshotting treats state as immutable versions. Readers use a consistent snapshot while writers create a new version, reducing lock contention and simplifying reasoning about concurrent access."
+        }
+      ]
+    },
+    {
+      "section": "Security Patterns",
+      "items": [
+        {
+          "name": "RBAC",
+          "bestFor": ["Enterprise authorization", "Admin consoles", "Simple permission models"],
+          "patternType": "Security / Authorization",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Assign permissions to roles; users receive roles.",
+          "description": "Role-Based Access Control groups permissions into roles (Admin, Editor, Viewer). Users are assigned roles, which grant their permissions. It’s straightforward but can become rigid when exceptions multiply."
+        },
+        {
+          "name": "ABAC",
+          "bestFor": ["Fine-grained authorization", "Multi-tenant systems", "Policy-driven access"],
+          "patternType": "Security / Authorization",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Authorization based on attributes and policies (context-aware).",
+          "description": "Attribute-Based Access Control evaluates access using attributes of the user, resource, and environment (tenant, region, time) against policies. It’s flexible but requires good tooling and testing to manage policy complexity."
+        }
+      ]
+    }  
 ]
