@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import './InfiniteScroll.css';
 
 function WeddingPhotoGallery() {
   const [photos, setPhotos] = useState([]);
