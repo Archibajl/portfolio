@@ -1423,5 +1423,427 @@
           "description": "Attribute-Based Access Control evaluates access using attributes of the user, resource, and environment (tenant, region, time) against policies. It’s flexible but requires good tooling and testing to manage policy complexity."
         }
       ]
-    }  
+    },
+      {
+        "section": "Enterprise Integration Patterns (EIP)",
+        "items": [
+          {
+            "name": "Idempotent Consumer",
+            "bestFor": ["Event-driven systems", "At-least-once delivery", "Retry-safe processing"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Process a message safely even if it is delivered multiple times.",
+            "description": "Design consumers so repeated delivery does not create duplicate side effects. Common techniques include dedupe keys, storing processed message IDs with TTL, and using idempotent writes/upserts."
+          },
+          {
+            "name": "Competing Consumers",
+            "bestFor": ["Scaling message processing", "Queue-based workloads", "Background jobs"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Multiple consumers share a queue subscription to scale throughput.",
+            "description": "Run N consumer instances reading from the same queue/subscription so work is distributed across them. Requires safe processing (idempotency), good visibility timeouts, and backpressure controls."
+          },
+          {
+            "name": "Content-Based Router",
+            "bestFor": ["Routing by event type", "Multi-tenant routing", "Integration hubs"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Route messages to different channels based on message content/headers.",
+            "description": "A router examines message headers/body and forwards it to the appropriate channel/handler (e.g., OrderPlaced → fulfillment; PaymentFailed → support). Keeps producers simple and centralizes routing rules."
+          },
+          {
+            "name": "Message Filter",
+            "bestFor": ["Dropping irrelevant events", "Reducing downstream load", "Selective processing"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Discard messages that are not relevant to a consumer.",
+            "description": "Filter messages early using predicates on headers/body so downstream components only see what they need. Often combined with routing and schema validation."
+          },
+          {
+            "name": "Message Translator",
+            "bestFor": ["Interoperability", "Schema/version mismatch", "Legacy integration"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Transform message formats between producers and consumers.",
+            "description": "Translate messages from one schema/protocol to another (e.g., vendor payload → internal event). This can live in an anti-corruption layer and helps keep your domain model clean."
+          },
+          {
+            "name": "Splitter",
+            "bestFor": ["Batch payloads", "Fan-out processing", "Parallelism"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Split one message into multiple smaller messages.",
+            "description": "Break a large/batched message into individual messages so each part can be processed independently (and retried independently). Often paired with correlation IDs."
+          },
+          {
+            "name": "Aggregator",
+            "bestFor": ["Joining results", "Multi-step workflows", "Scatter-gather"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Combine multiple messages into a single outcome.",
+            "description": "Collect messages that share a correlation key and combine them when a completeness rule is met (count reached, time window expired, all parts arrived). Requires careful timeout and partial-failure handling."
+          },
+          {
+            "name": "Resequencer",
+            "bestFor": ["Out-of-order delivery", "Event streams", "Rebuilding ordering guarantees"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Restore message ordering before processing.",
+            "description": "Buffers messages and emits them in the correct order (by sequence number or event time). Useful when ordering is important but transport can reorder delivery."
+          },
+          {
+            "name": "Correlation ID",
+            "bestFor": ["Tracing workflows", "Request-reply over async", "Debugging"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Attach an ID that ties together related messages/steps.",
+            "description": "Use a correlation identifier to connect events and commands belonging to the same business process. Essential for multi-step async workflows, aggregators, and end-to-end observability."
+          },
+          {
+            "name": "Request–Reply (Async)",
+            "bestFor": ["RPC-like flows over messaging", "Long-running work", "Decoupled services"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Send a request message and receive a response message later.",
+            "description": "Implements request/response semantics over a message broker using reply-to addresses/topics and correlation IDs. Useful when HTTP would time out or when services are decoupled by design."
+          }
+        ]
+      },
+      {
+        "section": "Deployment & Operations Patterns",
+        "items": [
+          {
+            "name": "Blue–Green Deployment",
+            "bestFor": ["Zero-downtime releases", "Fast rollback", "Web services"],
+            "patternType": "Operations / Deployment",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Maintain two production environments and switch traffic.",
+            "description": "Deploy the new version to the idle environment (green), validate, then switch traffic from blue → green. Rollback is quick by switching back. Requires careful DB migration strategy."
+          },
+          {
+            "name": "Canary Release",
+            "bestFor": ["Risk reduction", "Progressive rollout", "Observability-driven releases"],
+            "patternType": "Operations / Deployment",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Roll out to a small slice first, then expand.",
+            "description": "Ship changes to a small % of users/traffic, monitor metrics, then gradually ramp up. Requires strong monitoring and the ability to halt/rollback quickly."
+          },
+          {
+            "name": "Rolling Deployment",
+            "bestFor": ["Clustered services", "Avoiding full downtime", "Simple progressive updates"],
+            "patternType": "Operations / Deployment",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Update instances gradually across a fleet.",
+            "description": "Replace instances in batches while keeping the service available. Works well with stateless services and health checks; can be risky when versions are not compatible."
+          },
+          {
+            "name": "Health Checks (Readiness/Liveness)",
+            "bestFor": ["Kubernetes", "Load balancers", "Self-healing systems"],
+            "patternType": "Operations / Reliability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Expose endpoints that report service health and readiness.",
+            "description": "Liveness checks detect when a process should be restarted. Readiness checks detect when it can receive traffic. Correct design avoids cascading failures and prevents routing to unhealthy instances."
+          },
+          {
+            "name": "Graceful Shutdown",
+            "bestFor": ["Zero-downtime deploys", "Avoiding dropped requests", "Workers/consumers"],
+            "patternType": "Operations / Reliability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Stop accepting new work, finish in-flight work, then exit.",
+            "description": "On shutdown signals, stop new requests, drain queues, flush logs/metrics, and close connections cleanly. Prevents partial writes, duplicate work, and client-visible errors."
+          },
+          {
+            "name": "Load Shedding",
+            "bestFor": ["Overload protection", "Maintaining core availability", "Degraded modes"],
+            "patternType": "Operations / Resiliency",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Drop non-critical work intentionally under load.",
+            "description": "When overloaded, reject or degrade requests to preserve system health (e.g., shed expensive endpoints, return cached results, disable optional features). Works best with clear priorities and SLO-driven triggers."
+          },
+          {
+            "name": "Service Warmup",
+            "bestFor": ["Cold start mitigation", "JIT/runtime warming", "Cache priming"],
+            "patternType": "Operations / Performance",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Prepare instances before sending full traffic.",
+            "description": "Perform warmup steps (load models, prime caches, compile templates, establish pools) before marking an instance ready. Reduces tail latency and startup-related incidents."
+          }
+        ]
+      },
+      {
+        "section": "Observability Patterns",
+        "items": [
+          {
+            "name": "Structured Logging",
+            "bestFor": ["Production debugging", "Searchable logs", "Log-based analytics"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Emit logs as structured fields, not free-form strings.",
+            "description": "Use JSON (or key/value) logs with consistent fields (level, service, requestId, userId, eventType). Makes logs queryable, supports dashboards/alerts, and reduces ambiguity during incident response."
+          },
+          {
+            "name": "Request/Correlation ID Propagation",
+            "bestFor": ["Microservices tracing", "Debugging distributed flows", "Support tickets"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Carry a unique ID across boundaries (HTTP, queues, jobs).",
+            "description": "Generate or accept a request ID at the edge and propagate it through downstream calls and messages. Include it in logs and responses so a single user issue can be traced end-to-end."
+          },
+          {
+            "name": "Distributed Tracing (Trace/Span)",
+            "bestFor": ["Latency investigation", "Microservices", "Bottleneck discovery"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Model requests as traces containing timed spans.",
+            "description": "Instrument services to emit trace data (traceId, spans, timing, attributes). This reveals where time is spent across service boundaries and helps identify slow dependencies or hot paths."
+          },
+          {
+            "name": "RED Metrics",
+            "bestFor": ["HTTP/Request-based services", "SRE dashboards", "Alerting"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Track Rate, Errors, Duration for services.",
+            "description": "A simple service health lens: request rate, error rate, and duration (latency). Useful as a default dashboard and for setting actionable alerts."
+          },
+          {
+            "name": "USE Metrics",
+            "bestFor": ["Infrastructure monitoring", "Capacity planning", "Node health"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Track Utilization, Saturation, Errors for resources.",
+            "description": "A resource-centric lens: utilization (busy%), saturation (queued work), and errors (failures). Commonly used for CPU, memory, disks, and network."
+          },
+          {
+            "name": "SLO / Error Budget",
+            "bestFor": ["Reliability goals", "Release governance", "Prioritization"],
+            "patternType": "Observability / Operations",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Define targets and budget unreliability intentionally.",
+            "description": "Set Service Level Objectives (SLOs) based on user-focused SLIs (latency, availability). Use error budgets to balance feature velocity against reliability work."
+          }
+        ]
+      },
+      {
+        "section": "Data Consistency & Persistence Patterns",
+        "items": [
+          {
+            "name": "Optimistic Concurrency Control (OCC)",
+            "bestFor": ["High read / moderate write systems", "Avoiding lock contention", "REST writes"],
+            "patternType": "Data / Consistency",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Detect write conflicts using versions instead of locks.",
+            "description": "Store a version (or etag) with rows/documents and only update if the version matches (compare-and-swap). If it changed, retry or surface a conflict. Prevents lost updates without heavy locking."
+          },
+          {
+            "name": "Soft Delete",
+            "bestFor": ["Auditability", "Undo/recovery", "Compliance needs"],
+            "patternType": "Data / Persistence",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Mark records as deleted instead of removing them.",
+            "description": "Replace hard deletes with a deleted flag/timestamp. Enables recovery and auditing, but requires consistent filtering and careful handling of unique constraints and query performance."
+          },
+          {
+            "name": "Audit Log",
+            "bestFor": ["Compliance", "Forensics", "Change history"],
+            "patternType": "Data / Persistence",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Record who changed what and when (and sometimes why).",
+            "description": "Persist an append-only log of significant changes including actor, timestamp, and before/after. Complements event sourcing; can be implemented via app logic, DB triggers, or event streams."
+          },
+          {
+            "name": "Upsert",
+            "bestFor": ["Idempotent writes", "Sync/ingestion pipelines", "Deduplication"],
+            "patternType": "Data / Persistence",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Insert if missing, otherwise update.",
+            "description": "Upsert provides a single operation that is naturally retry-friendly. Often paired with idempotency keys and unique constraints to safely handle repeated ingestion or message replays."
+          },
+          {
+            "name": "Multi-Tenancy (Tenant Key Pattern)",
+            "bestFor": ["SaaS apps", "Tenant isolation", "Authorization by tenant"],
+            "patternType": "Data / Architecture",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Include tenantId in data model and enforce it everywhere.",
+            "description": "Store tenantId on all tenant-owned data and enforce it in queries, indexes, and authorization. Prevent cross-tenant leaks via code conventions, query helpers, and DB constraints where possible."
+          }
+        ]
+      },
+      {
+        "section": "API & Boundary Patterns",
+        "items": [
+          {
+            "name": "API Gateway",
+            "bestFor": ["Microservices", "Cross-cutting concerns", "Unified external API"],
+            "patternType": "Architecture / API",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Single entry point for clients; routes to internal services.",
+            "description": "Centralize concerns like authentication, rate limiting, routing, request shaping, and observability at the edge. Reduces duplication but can become a bottleneck or monolith if overgrown."
+          },
+          {
+            "name": "Backend for Frontend (BFF)",
+            "bestFor": ["Multiple clients (web/mobile)", "UI-specific APIs", "Reducing client complexity"],
+            "patternType": "Architecture / API",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Create a backend tailored to a specific UI/client.",
+            "description": "A BFF serves one client type and shapes data exactly for that UI, reducing overfetching/underfetching and avoiding UI logic bleeding into general-purpose APIs."
+          },
+          {
+            "name": "Versioned API Contract",
+            "bestFor": ["Public APIs", "Backward compatibility", "Long-lived clients"],
+            "patternType": "Architecture / API",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Evolve APIs without breaking existing consumers.",
+            "description": "Use a clear versioning strategy (URL, header, media type) plus deprecation policy. Pair with compatibility testing and gradual migrations to avoid breaking clients."
+          },
+          {
+            "name": "Branch by Abstraction",
+            "bestFor": ["Large refactors", "Migrations", "Reducing rewrite risk"],
+            "patternType": "Migration",
+            "paradigms": ["Any"],
+            "languages": ["Most languages"],
+            "notes": "Introduce an abstraction layer to swap implementations gradually.",
+            "description": "Insert an interface (or seam) so old and new implementations can coexist. Route traffic progressively to the new implementation until the old one can be removed—safer than big-bang rewrites."
+          },
+          {
+            "name": "Bulkhead at the Boundary",
+            "bestFor": ["Protecting critical endpoints", "Preventing noisy neighbor issues"],
+            "patternType": "Architecture / Resiliency",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Isolate resources per endpoint/tenant/priority class.",
+            "description": "Use separate pools/quotas for different request classes so one heavy route or tenant cannot starve the rest. Often implemented in gateways, reverse proxies, or service middleware."
+          }
+        ]
+      },
+      {
+        "section": "Frontend State & UI Patterns",
+        "items": [
+          {
+            "name": "State Machines (UI)",
+            "bestFor": ["Complex UI flows", "Multi-step forms", "Predictable UI states"],
+            "patternType": "UI / State management",
+            "paradigms": ["Functional-ish", "Reactive"],
+            "languages": ["TypeScript/JavaScript", "Swift", "Kotlin"],
+            "notes": "Model UI as explicit states and transitions.",
+            "description": "Define a finite set of states (idle, loading, success, error) and allowed transitions. Prevents impossible UI states and replaces scattered boolean flags with a single coherent model."
+          },
+          {
+            "name": "Reducer Pattern",
+            "bestFor": ["Complex component state", "Predictable updates", "Event-driven UI"],
+            "patternType": "UI / State management",
+            "paradigms": ["Functional-ish"],
+            "languages": ["TypeScript/JavaScript"],
+            "notes": "Update state via actions and a pure reducer function.",
+            "description": "Use action objects and a reducer to compute next state from previous state. Improves debuggability and keeps transitions explicit; commonly used in React via useReducer even without Redux."
+          },
+          {
+            "name": "Container / Presentational Components",
+            "bestFor": ["Separation of concerns", "Testability", "Reusable UI components"],
+            "patternType": "UI architecture",
+            "paradigms": ["Functional-ish"],
+            "languages": ["TypeScript/JavaScript"],
+            "notes": "Separate data-fetching/logic from rendering components.",
+            "description": "Container components handle data, side effects, and wiring; presentational components focus on UI rendering and props. This improves reuse and keeps UI components easier to test."
+          },
+          {
+            "name": "Controlled vs Uncontrolled Inputs",
+            "bestFor": ["Forms", "Validation", "Performance tradeoffs"],
+            "patternType": "UI patterns",
+            "paradigms": ["Functional-ish"],
+            "languages": ["TypeScript/JavaScript"],
+            "notes": "Choose whether state is owned by React or by the DOM.",
+            "description": "Controlled inputs store the current value in state and update via onChange (great for validation). Uncontrolled inputs let the DOM keep state and read values on submit (can be simpler and faster for huge forms)."
+          },
+          {
+            "name": "Error Boundary",
+            "bestFor": ["Resilient UIs", "Graceful UI failure", "Reducing white screens"],
+            "patternType": "UI / Resiliency",
+            "paradigms": ["OOP", "Imperative"],
+            "languages": ["TypeScript/JavaScript (React)"],
+            "notes": "Catch rendering errors and show a fallback UI.",
+            "description": "Wrap UI regions so a crash in one component doesn’t take down the whole page. Log the error and render a fallback so the app remains usable."
+          }
+        ]
+      },
+      {
+        "section": "Language & Runtime Specific Patterns",
+        "items": [
+          {
+            "name": "RAII",
+            "bestFor": ["Resource safety", "Exception-safe cleanup", "Systems programming"],
+            "patternType": "Language-specific",
+            "paradigms": ["Imperative", "OOP"],
+            "languages": ["C++", "Rust (similar concept)"],
+            "notes": "Acquire resources in initialization; release automatically on scope exit.",
+            "description": "Resource Acquisition Is Initialization ties resource lifetime (files, locks, memory) to object lifetime. Destructors (or drop semantics) guarantee cleanup, reducing leaks and making code safer under early returns/errors."
+          },
+          {
+            "name": "Typestate",
+            "bestFor": ["Protocol correctness", "State-dependent APIs", "Compile-time guarantees"],
+            "patternType": "Language-specific",
+            "paradigms": ["Functional-ish", "Imperative"],
+            "languages": ["Rust", "TypeScript", "Scala"],
+            "notes": "Encode valid states in types so invalid usage won’t compile.",
+            "description": "Model an object’s state using types (e.g., Connected vs Disconnected) so only valid operations are available in each state. Prevents runtime bugs in workflows and protocols."
+          },
+          {
+            "name": "Ownership / Borrowing Discipline",
+            "bestFor": ["Memory safety", "Concurrency safety", "Avoiding shared mutable state"],
+            "patternType": "Language-specific",
+            "paradigms": ["Imperative", "Functional-ish"],
+            "languages": ["Rust"],
+            "notes": "Control aliasing and mutation via ownership rules.",
+            "description": "Use single ownership for mutation and controlled borrowing for sharing. This eliminates large classes of memory and concurrency bugs by construction, but requires explicit design around lifetimes and shared data."
+          },
+          {
+            "name": "Null Object",
+            "bestFor": ["Avoiding null checks", "Default behaviors", "Cleaner APIs"],
+            "patternType": "Behavioral (non-GoF common)",
+            "paradigms": ["OOP", "Imperative"],
+            "languages": ["Most languages"],
+            "notes": "Use a do-nothing implementation instead of null.",
+            "description": "Provide an object that implements the interface with safe no-op behavior (e.g., NullLogger). Reduces null checks and clarifies default behavior, but ensure it doesn’t hide real errors."
+          },
+          {
+            "name": "Object Pool",
+            "bestFor": ["Expensive object creation", "High-frequency allocations", "Real-time systems"],
+            "patternType": "Performance",
+            "paradigms": ["Imperative", "OOP"],
+            "languages": ["C++", "C#", "Java", "Rust"],
+            "notes": "Reuse objects instead of allocating repeatedly.",
+            "description": "Maintain a pool of reusable objects to reduce allocation overhead and GC pressure. Useful in real-time or allocation-heavy systems; can be counterproductive if it complicates correctness or modern allocators make it unnecessary."
+          }
+        ]
+      }
 ]

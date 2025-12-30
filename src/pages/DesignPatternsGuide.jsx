@@ -206,12 +206,30 @@ export default function DesignPatternsGuide() {
                 .sort((a, b) => a.name.localeCompare(b.name))
                 .map((item) => (
                   <tr key={`${item.section}::${item.name}`}>
-                    <td className="dpg-tdStrong">{item.name}</td>
-                    <td>{item.section}</td>
-                    <td>{item.patternType}</td>
-                    <td>{(item.paradigms || []).join(", ")}</td>
-                    <td>{(item.bestFor || []).join(", ")}</td>
-                    <td>{(item.languages || []).join(", ")}</td>
+                    <td className="dpg-tdStrong">
+                      <AcronymWrapper acronyms={ACRONYMS}>{item.name}</AcronymWrapper>
+                    </td>
+                    <td>
+                      <AcronymWrapper acronyms={ACRONYMS}>{item.section}</AcronymWrapper>
+                    </td>
+                    <td>
+                      <AcronymWrapper acronyms={ACRONYMS}>{item.patternType}</AcronymWrapper>
+                    </td>
+                    <td>
+                      <AcronymWrapper acronyms={ACRONYMS}>
+                        {(item.paradigms || []).join(", ")}
+                      </AcronymWrapper>
+                    </td>
+                    <td>
+                      <AcronymWrapper acronyms={ACRONYMS}>
+                        {(item.bestFor || []).join(", ")}
+                      </AcronymWrapper>
+                    </td>
+                    <td>
+                      <AcronymWrapper acronyms={ACRONYMS}>
+                        {(item.languages || []).join(", ")}
+                      </AcronymWrapper>
+                    </td>
                     <td>
                       <div className="dpg-tableNotes">
                         <AcronymWrapper acronyms={ACRONYMS}>{item.notes}</AcronymWrapper>
@@ -240,7 +258,9 @@ export default function DesignPatternsGuide() {
                 {group.items.map((item) => (
                   <article className="dpg-card" key={`${group.section}::${item.name}`}>
                     <div className="dpg-cardTop">
-                      <h3 className="dpg-cardTitle">{item.name}</h3>
+                      <h3 className="dpg-cardTitle">
+                        <AcronymWrapper acronyms={ACRONYMS}>{item.name}</AcronymWrapper>
+                      </h3>
                       <div className="dpg-chipRow">
                         <Chip>{item.patternType}</Chip>
                         {(item.paradigms || []).map((p) => (
