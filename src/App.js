@@ -7,6 +7,7 @@ import ReactPgs from "./pages/ReactPgs.js";
 import Resume from "./pages/Resume.js";
 import About from "./pages/About.js";
 import Home from "./pages/HomePage";
+import WeddingPhotos from "./pages/WeddingPhotos";
 import Landing from "./components/Landing.js";
 import DesignPatternsGuide from "./pages/DesignPatternsGuide.jsx";
 import Nav from "react-bootstrap/Nav";
@@ -54,6 +55,11 @@ function App() {
           <Route path="/pages/DesignPatternsGuide" element={<div>
             <Heading />
             <DesignPatternsGuide />
+            <Footer />
+          </div>}/>
+          <Route path="/pages/WeddingPhotos" element={<div>
+            <Heading />
+            <WeddingPhotos />
             <Footer />
           </div>}/>
           <Route path="/pages/*" element={<div>
