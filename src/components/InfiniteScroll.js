@@ -174,7 +174,7 @@ function WeddingPhotoGallery() {
           <PhotoItem
             key={`${index}-${photo}`}
             src={photo}
-            alt={`Wedding photo ${index + 1}`}
+            alt={`Wedding memory ${index + 1}`}
             index={index}
             onClick={openLightbox}
           />
@@ -189,7 +189,7 @@ function WeddingPhotoGallery() {
           <button className="lightbox-next" onClick={(e) => { e.stopPropagation(); nextImage(); }}>›</button>
           <img
             src={photos[currentImageIndex]}
-            alt={`Wedding photo ${currentImageIndex + 1}`}
+            alt={`Wedding memory ${currentImageIndex + 1}`}
             className="lightbox-image"
             onClick={(e) => e.stopPropagation()}
           />

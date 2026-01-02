@@ -18,7 +18,7 @@ const R2_PUBLIC_URL = process.env.R2_PUBLIC_URL;
 let s3Client = null;
 if (R2_ACCOUNT_ID && R2_ACCESS_KEY_ID && R2_SECRET_ACCESS_KEY) {
   const endpoint = `https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com`;
-  console.log('[R2] Initializing S3 client with endpoint:');
+  console.debug('[R2] Initializing S3 client with endpoint:');
 
   s3Client = new S3Client({
     region: 'auto',
@@ -53,17 +53,17 @@ async function fetchPhotosFromR2() {
   }
 
   try {
-    console.log('[R2] Fetching photo list from bucket using S3 API...');
-    console.log('[R2] Using bucket:', R2_BUCKET_NAME);
+    console.debug('[R2] Fetching photo list from bucket using S3 API...');
+    console.debug('[R2] Using bucket:', R2_BUCKET_NAME);
 
     const command = new ListObjectsV2Command({
       Bucket: R2_BUCKET_NAME,
       MaxKeys: 1000, // Adjust if you have more than 1000 photos
     });
 
-    console.log('[R2] Sending ListObjectsV2Command...');
+    console.debug('[R2] Sending ListObjectsV2Command...');
     const response = await s3Client.send(command);
-    console.log('[R2] Successfully received response from R2');
+    console.debug('[R2] Successfully received response from R2');
 
     // Filter for image files only
     const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.heic', '.heif'];
@@ -76,13 +76,13 @@ async function fetchPhotosFromR2() {
       .sort(); // Sort alphabetically
 
     cacheTimestamp = Date.now();
-    console.log(`[R2] Loaded ${photoListCache.length} photos from bucket`);
+    console.log(`[R2] Loaded ${photoListCache.length} photos from API`);
 
     return photoListCache;
   } catch (error) {
-    console.error('[R2] Error fetching photos:', error.message);
-    console.error('[R2] Error code:', error.code);
     console.error('[R2] Error name:', error.name);
+    console.error('[R2] Error code:', error.code);
+    console.error('[R2] Error fetching photos:', error.message);
     if (error.$metadata) {
       console.error('[R2] HTTP Status Code:', error.$metadata.httpStatusCode);
       console.error('[R2] Request ID:', error.$metadata.requestId);
