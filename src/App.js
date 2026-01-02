@@ -9,6 +9,7 @@ import About from "./pages/About.js";
 import Home from "./pages/HomePage";
 import WeddingPhotos from "./pages/WeddingPhotos";
 import Landing from "./components/Landing.js";
+import DesignPatternsGuide from "./pages/DesignPatternsGuide.jsx";
 import Nav from "react-bootstrap/Nav";
 import lnkInImg from "./images/linkedIn_PNG32.png";
 import {
@@ -51,6 +52,11 @@ function App() {
             <About />
             <Footer />
           </div>}/>
+          <Route path="/pages/DesignPatternsGuide" element={<div>
+            <Heading />
+            <DesignPatternsGuide />
+            <Footer />
+          </div>}/>
           <Route path="/pages/WeddingPhotos" element={<div>
             <Heading />
             <WeddingPhotos />
@@ -85,6 +91,7 @@ function Heading() {
                 <Nav.Link href="../pages/Resume">Resume/CV</Nav.Link>
                 <Nav.Link href="../pages/Projects">Projects</Nav.Link>
                 <Nav.Link href="../pages/ReactPgs">React Pages</Nav.Link>
+                <Nav.Link href="../pages/DesignPatternsGuide">Design Patterns</Nav.Link>
               </Nav>
               <Nav className="LinkedIn">
                 <NavItem>

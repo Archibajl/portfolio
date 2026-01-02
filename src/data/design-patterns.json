@@ -1,0 +1,1849 @@
+[
+  {
+    "section": "GoF — Creational (object creation)",
+    "items": [
+      {
+        "name": "Factory Method",
+        "bestFor": [
+          "Libraries",
+          "Frameworks",
+          "Extensible backends"
+        ],
+        "patternType": "Creational (GoF)",
+        "paradigms": [
+          "OOP",
+          "Imperative"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "C++",
+          "Kotlin",
+          "Swift",
+          "TypeScript",
+          "Python"
+        ],
+        "notes": "Defer object creation to subclasses.",
+        "description": "Factory Method defines an interface for creating objects, but lets subclasses (or implementers) decide which concrete type to instantiate. It’s useful when a base framework wants to allow extensions without hard-coding new types into core logic."
+      },
+      {
+        "name": "Abstract Factory",
+        "bestFor": [
+          "Cross-platform SDKs",
+          "UI kits",
+          "Multi-vendor integrations"
+        ],
+        "patternType": "Creational (GoF)",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "C++",
+          "Kotlin",
+          "Swift"
+        ],
+        "notes": "Create families of related objects.",
+        "description": "Abstract Factory provides an interface for creating a set (family) of related objects without specifying concrete classes. It shines when you need consistent combinations (e.g., platform-specific UI components or vendor-specific integrations)."
+      },
+      {
+        "name": "Builder",
+        "bestFor": [
+          "APIs with many optional params",
+          "Config objects"
+        ],
+        "patternType": "Creational (GoF)",
+        "paradigms": [
+          "OOP",
+          "Imperative"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "Kotlin",
+          "Swift",
+          "TypeScript"
+        ],
+        "notes": "Construct complex objects step-by-step.",
+        "description": "Builder separates the construction of a complex object from its representation. It’s great for readable creation of objects with many optional fields and for enforcing valid construction sequences without giant constructors."
+      },
+      {
+        "name": "Prototype",
+        "bestFor": [
+          "Cloning complex objects",
+          "Performance-sensitive creation"
+        ],
+        "patternType": "Creational (GoF)",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "C++",
+          "Java",
+          "C#",
+          "Python"
+        ],
+        "notes": "Create by cloning an existing instance.",
+        "description": "Prototype creates new objects by copying an existing instance (a prototype). It’s useful when initialization is expensive, when you want to preserve complex configuration, or when types are determined at runtime."
+      },
+      {
+        "name": "Singleton (use sparingly)",
+        "bestFor": [
+          "Shared runtime services (logging/config)",
+          "Embedded/system code"
+        ],
+        "patternType": "Creational (GoF)",
+        "paradigms": [
+          "OOP",
+          "Imperative"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Exactly one instance globally accessible.",
+        "description": "Singleton ensures a class has only one instance and provides a global access point. Use carefully: it can hide dependencies, complicate tests, and increase coupling—often better replaced by dependency injection or explicit wiring."
+      }
+    ]
+  },
+  {
+    "section": "GoF — Structural (composition & wiring)",
+    "items": [
+      {
+        "name": "Adapter",
+        "bestFor": [
+          "Legacy integration",
+          "3rd-party APIs",
+          "SDKs"
+        ],
+        "patternType": "Structural (GoF)",
+        "paradigms": [
+          "OOP",
+          "Imperative"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Convert one interface into another.",
+        "description": "Adapter wraps an existing class to make it compatible with a new interface. It’s a go-to pattern for integrating legacy code or third-party APIs without rewriting them."
+      },
+      {
+        "name": "Facade",
+        "bestFor": [
+          "Simplifying complex subsystems",
+          "Service clients"
+        ],
+        "patternType": "Structural (GoF)",
+        "paradigms": [
+          "OOP",
+          "Imperative"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "A simpler front door to a complex subsystem.",
+        "description": "Facade provides a unified, simpler interface over a complicated subsystem. It reduces cognitive load and coupling by keeping callers away from internal complexity."
+      },
+      {
+        "name": "Decorator",
+        "bestFor": [
+          "Middleware",
+          "I/O streams",
+          "HTTP pipelines"
+        ],
+        "patternType": "Structural (GoF)",
+        "paradigms": [
+          "OOP",
+          "Functional-ish"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "Python",
+          "TypeScript",
+          "Kotlin"
+        ],
+        "notes": "Add behavior by wrapping.",
+        "description": "Decorator wraps an object to add responsibilities dynamically without subclassing. Common in middleware stacks, stream pipelines, and cross-cutting behaviors like logging, retries, or caching."
+      },
+      {
+        "name": "Composite",
+        "bestFor": [
+          "UI trees",
+          "File systems",
+          "ASTs"
+        ],
+        "patternType": "Structural (GoF)",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Treat leaves and trees uniformly.",
+        "description": "Composite composes objects into tree structures and lets clients treat individual objects and compositions uniformly. It’s ideal for hierarchical structures such as UI layouts, file directories, and syntax trees."
+      },
+      {
+        "name": "Proxy",
+        "bestFor": [
+          "RPC clients",
+          "Lazy loading",
+          "Access control"
+        ],
+        "patternType": "Structural (GoF)",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "Python",
+          "TypeScript"
+        ],
+        "notes": "A stand-in that controls access.",
+        "description": "Proxy provides a placeholder for another object to control access to it. Typical uses include lazy loading, remote proxies (RPC), caching, access control, and instrumentation."
+      },
+      {
+        "name": "Bridge",
+        "bestFor": [
+          "Separating abstraction/implementation",
+          "Platforms/drivers"
+        ],
+        "patternType": "Structural (GoF)",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "C++",
+          "Java",
+          "C#"
+        ],
+        "notes": "Decouple abstraction from implementation.",
+        "description": "Bridge splits a concept into two independently varying hierarchies: abstraction and implementation. It’s useful when you’d otherwise get a combinatorial explosion of subclasses across platforms/strategies."
+      },
+      {
+        "name": "Flyweight",
+        "bestFor": [
+          "Memory optimization (glyphs/game objects)",
+          "Caching"
+        ],
+        "patternType": "Structural (GoF)",
+        "paradigms": [
+          "OOP",
+          "Imperative"
+        ],
+        "languages": [
+          "C++",
+          "Java",
+          "C#",
+          "Rust"
+        ],
+        "notes": "Share common state to reduce memory.",
+        "description": "Flyweight reduces memory usage by sharing intrinsic (common) state across many objects and keeping extrinsic (unique) state outside. It’s common in rendering, text systems, and high-volume object scenarios."
+      }
+    ]
+  },
+  {
+    "section": "GoF — Behavioral (control flow & interaction)",
+    "items": [
+      {
+        "name": "Strategy",
+        "bestFor": [
+          "Pluggable algorithms (pricing/routing/ranking)"
+        ],
+        "patternType": "Behavioral (GoF)",
+        "paradigms": [
+          "OOP",
+          "Functional"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Swap algorithms without changing callers.",
+        "description": "Strategy defines a family of interchangeable algorithms and makes them selectable at runtime. In functional code, this often reduces to “pass a function” (higher-order functions)."
+      },
+      {
+        "name": "Observer / Pub-Sub",
+        "bestFor": [
+          "UI events",
+          "Reactive systems",
+          "Domain events"
+        ],
+        "patternType": "Behavioral (GoF-ish)",
+        "paradigms": [
+          "OOP",
+          "Reactive",
+          "Functional"
+        ],
+        "languages": [
+          "TypeScript/JS",
+          "Java",
+          "C#",
+          "Swift",
+          "Kotlin"
+        ],
+        "notes": "Notify subscribers when something changes.",
+        "description": "Observer lets dependents subscribe to events/state changes from a subject. It’s fundamental to event emitters, reactive streams, UI event models, and domain event systems."
+      },
+      {
+        "name": "Command",
+        "bestFor": [
+          "Undo/redo",
+          "Job queues",
+          "Handler-based apps"
+        ],
+        "patternType": "Behavioral (GoF)",
+        "paradigms": [
+          "OOP",
+          "Functional"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Encapsulate a request as an object (or closure).",
+        "description": "Command turns a request into a standalone object (or function) that can be queued, logged, retried, composed, or undone. It’s common in UI actions, background jobs, and command-handler architectures."
+      },
+      {
+        "name": "State",
+        "bestFor": [
+          "Workflow engines",
+          "UI state machines",
+          "Protocol states"
+        ],
+        "patternType": "Behavioral (GoF)",
+        "paradigms": [
+          "OOP",
+          "Functional"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Behavior changes as state changes.",
+        "description": "State models behavior as a set of explicit states with transitions. It helps replace huge conditionals with a state machine where each state owns the logic for what happens next."
+      },
+      {
+        "name": "Template Method",
+        "bestFor": [
+          "Framework hooks",
+          "Consistent pipelines"
+        ],
+        "patternType": "Behavioral (GoF)",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "C++"
+        ],
+        "notes": "Define algorithm skeleton; override steps.",
+        "description": "Template Method defines the overall structure of an algorithm in a base class and lets subclasses override specific steps. It’s common in frameworks where you customize behavior via hooks."
+      },
+      {
+        "name": "Chain of Responsibility",
+        "bestFor": [
+          "Web middleware",
+          "Validation pipelines",
+          "Logging"
+        ],
+        "patternType": "Behavioral (GoF)",
+        "paradigms": [
+          "OOP",
+          "Functional"
+        ],
+        "languages": [
+          "TypeScript/JS",
+          "Java",
+          "C#",
+          "Python"
+        ],
+        "notes": "Pass a request through a chain of handlers.",
+        "description": "Chain of Responsibility routes a request through a sequence of handlers until one handles it (or the chain ends). It’s the conceptual core behind middleware stacks and staged validation pipelines."
+      },
+      {
+        "name": "Mediator",
+        "bestFor": [
+          "Complex UI coordination",
+          "Message hubs"
+        ],
+        "patternType": "Behavioral (GoF)",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "TypeScript"
+        ],
+        "notes": "Central coordinator reduces coupling.",
+        "description": "Mediator centralizes complex communication between components so they don’t reference each other directly. It reduces tight coupling when you have many-to-many interactions (often UI-heavy systems)."
+      },
+      {
+        "name": "Visitor",
+        "bestFor": [
+          "Compilers",
+          "AST transforms",
+          "Static analysis"
+        ],
+        "patternType": "Behavioral (GoF)",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Java",
+          "C++",
+          "C#",
+          "Scala"
+        ],
+        "notes": "Separate operations from object structure.",
+        "description": "Visitor allows adding new operations over a fixed object structure without modifying the structure classes. It’s particularly useful for AST processing in compilers/analyzers, though it can be verbose."
+      },
+      {
+        "name": "Iterator",
+        "bestFor": [
+          "Collection traversal abstractions"
+        ],
+        "patternType": "Behavioral (GoF)",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Traverse without exposing internals.",
+        "description": "Iterator provides a standard way to traverse elements of a collection without exposing its underlying representation. Many modern languages bake this into the language/runtime."
+      }
+    ]
+  },
+  {
+    "section": "Architectural (system-level shape)",
+    "items": [
+      {
+        "name": "Layered (N-tier)",
+        "bestFor": [
+          "Enterprise backends",
+          "CRUD apps"
+        ],
+        "patternType": "Architectural",
+        "paradigms": [
+          "OOP",
+          "Imperative"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "Python",
+          "Ruby",
+          "PHP"
+        ],
+        "notes": "Organize code into layers by responsibility.",
+        "description": "Layered architecture splits responsibilities into layers (e.g., UI, application/service, domain, data). It’s easy to understand and common in enterprise CRUD systems, though layers can become leaky without discipline."
+      },
+      {
+        "name": "Hexagonal (Ports & Adapters)",
+        "bestFor": [
+          "Testable services",
+          "Clean boundaries"
+        ],
+        "patternType": "Architectural",
+        "paradigms": [
+          "Any (OOP + Functional friendly)"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Domain core with adapters at the edges.",
+        "description": "Hexagonal architecture keeps the domain/application core independent of external concerns by defining ports (interfaces) and adapters (implementations for DB, web, queues). This improves testability and long-term maintainability."
+      },
+      {
+        "name": "Clean Architecture",
+        "bestFor": [
+          "Long-lived products",
+          "Large teams"
+        ],
+        "patternType": "Architectural",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Dependency rule: outer depends on inner.",
+        "description": "Clean Architecture organizes code so high-level business rules do not depend on frameworks or delivery details. Dependencies point inward, enabling easier testing, replacement of infrastructure, and clearer separation of concerns."
+      },
+      {
+        "name": "Microservices",
+        "bestFor": [
+          "Large distributed systems",
+          "Org scaling"
+        ],
+        "patternType": "Architectural",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Any (Go/Java/C#/Node/Rust common)"
+        ],
+        "notes": "Independently deployable services.",
+        "description": "Microservices split a system into independently deployable services with clear boundaries. This can improve team autonomy and scaling, but adds operational complexity (network failures, observability, deployment coordination)."
+      },
+      {
+        "name": "Event-Driven Architecture",
+        "bestFor": [
+          "Streaming",
+          "Async workflows",
+          "Integrations"
+        ],
+        "patternType": "Architectural",
+        "paradigms": [
+          "Reactive",
+          "Imperative",
+          "Functional"
+        ],
+        "languages": [
+          "Java",
+          "Kotlin",
+          "C#",
+          "Go",
+          "TypeScript/JS",
+          "Scala"
+        ],
+        "notes": "Communicate via events for decoupling.",
+        "description": "Event-driven systems communicate by publishing events that other components subscribe to. This increases decoupling and supports async workflows, but requires strong thinking around delivery guarantees, ordering, and idempotency."
+      },
+      {
+        "name": "CQRS",
+        "bestFor": [
+          "Complex domains",
+          "Auditability",
+          "Read scaling"
+        ],
+        "patternType": "Architectural",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Most languages"
+        ],
+        "notes": "Separate writes (commands) from reads (queries).",
+        "description": "CQRS separates the model for writing state (commands) from reading state (queries). This can simplify complex domains and scale reads independently, but increases system complexity and introduces eventual consistency concerns."
+      },
+      {
+        "name": "Event Sourcing",
+        "bestFor": [
+          "Audit trails",
+          "Temporal queries"
+        ],
+        "patternType": "Architectural",
+        "paradigms": [
+          "Any (often FP-friendly)"
+        ],
+        "languages": [
+          "JVM",
+          ".NET",
+          "Scala",
+          "Elixir"
+        ],
+        "notes": "Persist an append-only log of events.",
+        "description": "Event Sourcing stores all changes as a sequence of events rather than storing only current state. You can reconstruct state by replaying events, enabling auditability and time-travel queries, at the cost of more complex modeling and tooling."
+      },
+      {
+        "name": "Modular Monolith",
+        "bestFor": [
+          "Early-stage products",
+          "Simpler ops"
+        ],
+        "patternType": "Architectural",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Any"
+        ],
+        "notes": "One deployable, strong internal module boundaries.",
+        "description": "A modular monolith is deployed as a single unit but organized into well-defined internal modules. It often provides a great balance of simplicity and maintainability, and can be a stepping stone before microservices."
+      },
+      {
+        "name": "SOA (Service-Oriented Architecture)",
+        "bestFor": [
+          "Enterprise integrations"
+        ],
+        "patternType": "Architectural",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "Others"
+        ],
+        "notes": "Enterprise-style service composition.",
+        "description": "SOA organizes systems as interoperable services with standardized interfaces and governance. It overlaps with microservices but is often heavier in process, shared infrastructure, and enterprise integration tooling."
+      }
+    ]
+  },
+  {
+    "section": "Distributed systems & resiliency",
+    "items": [
+      {
+        "name": "Circuit Breaker",
+        "bestFor": [
+          "Microservices",
+          "Unreliable dependencies"
+        ],
+        "patternType": "Resiliency",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Java/Kotlin",
+          "C#",
+          "Go",
+          "TypeScript/JS"
+        ],
+        "notes": "Fail fast when a dependency is down.",
+        "description": "Circuit Breaker prevents repeated calls to a failing dependency by “opening” after a threshold of failures. This limits cascading failures and gives systems time to recover while providing predictable behavior to callers."
+      },
+      {
+        "name": "Retry + Backoff + Jitter",
+        "bestFor": [
+          "Network calls",
+          "Transient failures"
+        ],
+        "patternType": "Resiliency",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Any"
+        ],
+        "notes": "Retry intelligently to avoid overload.",
+        "description": "This pattern retries transient failures using exponential backoff and random jitter. It reduces load spikes (thundering herds) and improves stability when many clients retry simultaneously."
+      },
+      {
+        "name": "Bulkhead",
+        "bestFor": [
+          "Prevent cascading failures"
+        ],
+        "patternType": "Resiliency",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Any"
+        ],
+        "notes": "Isolate resources to contain failure.",
+        "description": "Bulkhead isolates resources (e.g., separate thread pools, queues, or rate limits) so a failure in one area doesn’t sink the entire service. It’s the software equivalent of compartmentalization in ships."
+      },
+      {
+        "name": "Rate Limiting (Token Bucket / Leaky Bucket)",
+        "bestFor": [
+          "Public APIs",
+          "Abuse prevention"
+        ],
+        "patternType": "Resiliency",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Any"
+        ],
+        "notes": "Control request rate and protect systems.",
+        "description": "Rate limiting restricts how many requests a caller can make over time. Token/Leaky bucket variants smooth bursts and protect downstream services from overload or abuse."
+      },
+      {
+        "name": "Idempotency Keys",
+        "bestFor": [
+          "Payments",
+          "Webhooks",
+          "Retries"
+        ],
+        "patternType": "Integration",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Any"
+        ],
+        "notes": "Make repeated requests safe.",
+        "description": "Idempotency keys allow clients to safely retry operations without duplicating side effects. The server deduplicates requests by key, returning the original result for repeats."
+      },
+      {
+        "name": "Saga",
+        "bestFor": [
+          "Distributed transactions"
+        ],
+        "patternType": "Distributed workflow",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Any"
+        ],
+        "notes": "Orchestrate multi-step work with compensations.",
+        "description": "Saga coordinates a sequence of local transactions across services. If a step fails, compensating actions undo prior steps. This avoids global locks in distributed systems but requires careful business-level rollback design."
+      },
+      {
+        "name": "Outbox Pattern",
+        "bestFor": [
+          "Reliable event publishing with a DB"
+        ],
+        "patternType": "Integration",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Any"
+        ],
+        "notes": "Atomically save state + publish later.",
+        "description": "Outbox writes both domain changes and outbound messages/events into the same database transaction, then publishes from the outbox asynchronously. It improves reliability and consistency across DB + message broker boundaries."
+      },
+      {
+        "name": "Strangler Fig",
+        "bestFor": [
+          "Legacy modernization"
+        ],
+        "patternType": "Migration",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Any"
+        ],
+        "notes": "Replace legacy incrementally.",
+        "description": "Strangler Fig gradually routes traffic from legacy functionality to new implementations until the old system can be removed. This reduces risk compared to big-bang rewrites."
+      }
+    ]
+  },
+  {
+    "section": "Concurrency & async",
+    "items": [
+      {
+        "name": "Producer–Consumer / Queue",
+        "bestFor": [
+          "Pipelines",
+          "Ingestion",
+          "Background work"
+        ],
+        "patternType": "Concurrency",
+        "paradigms": [
+          "Imperative",
+          "OOP"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "Go",
+          "Python",
+          "Rust"
+        ],
+        "notes": "Decouple producers from consumers.",
+        "description": "Producer–Consumer uses a queue to decouple work creation from work processing. It smooths spikes, enables backpressure, and helps scale processing via multiple consumers."
+      },
+      {
+        "name": "Thread Pool / Worker Pool",
+        "bestFor": [
+          "Servers",
+          "Batch processing"
+        ],
+        "patternType": "Concurrency",
+        "paradigms": [
+          "Imperative"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "Go",
+          "Rust",
+          "C++"
+        ],
+        "notes": "Reuse workers to process tasks.",
+        "description": "Worker pools amortize thread/process creation by reusing a fixed set of workers. It improves throughput and resource control, especially in server and batch processing workloads."
+      },
+      {
+        "name": "Futures/Promises",
+        "bestFor": [
+          "Async IO",
+          "Web clients"
+        ],
+        "patternType": "Concurrency",
+        "paradigms": [
+          "Reactive",
+          "Imperative"
+        ],
+        "languages": [
+          "TypeScript/JS",
+          "Java",
+          "C#",
+          "Python"
+        ],
+        "notes": "Represent results that complete later.",
+        "description": "Futures/Promises model asynchronous results and allow composition (then/await). They simplify async control flow while still requiring attention to cancellation, timeouts, and error propagation."
+      },
+      {
+        "name": "Actor Model",
+        "bestFor": [
+          "Highly concurrent services",
+          "Fault isolation"
+        ],
+        "patternType": "Concurrency model",
+        "paradigms": [
+          "Reactive",
+          "Functional-ish"
+        ],
+        "languages": [
+          "Erlang",
+          "Elixir",
+          "Scala (Akka)",
+          "JVM actors"
+        ],
+        "notes": "Isolate state; communicate by message.",
+        "description": "Actor systems encapsulate state within actors that process one message at a time. This reduces shared-memory races and supports fault supervision, making it well-suited to high-concurrency and distributed workloads."
+      },
+      {
+        "name": "CSP (channels)",
+        "bestFor": [
+          "Go-style pipelines",
+          "Structured concurrency"
+        ],
+        "patternType": "Concurrency model",
+        "paradigms": [
+          "Imperative",
+          "Functional-ish"
+        ],
+        "languages": [
+          "Go",
+          "Rust (tokio)",
+          "Kotlin (channels)"
+        ],
+        "notes": "Coordinate via channels, not shared memory.",
+        "description": "CSP uses communication channels to connect concurrent processes. It’s excellent for pipelines and structured concurrency, reducing the need for locks and shared mutable state."
+      },
+      {
+        "name": "Reactor / Event Loop",
+        "bestFor": [
+          "Network servers",
+          "UI runtimes"
+        ],
+        "patternType": "Concurrency",
+        "paradigms": [
+          "Imperative",
+          "Reactive"
+        ],
+        "languages": [
+          "Node.js",
+          "Java (Netty)",
+          "Python (asyncio)"
+        ],
+        "notes": "Dispatch async work via an event loop.",
+        "description": "Reactor/Event Loop architectures use a loop to dispatch I/O events to handlers (or async tasks). This scales well for I/O-bound workloads but requires careful handling of blocking work."
+      }
+    ]
+  },
+  {
+    "section": "Data access & enterprise app patterns",
+    "items": [
+      {
+        "name": "Repository",
+        "bestFor": [
+          "Domain-driven backends",
+          "Testability"
+        ],
+        "patternType": "Data access",
+        "paradigms": [
+          "Any"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "TypeScript",
+          "Python"
+        ],
+        "notes": "Collection-like interface over persistence.",
+        "description": "Repository abstracts data access behind domain-oriented operations (e.g., findById, save). It helps keep business logic independent of the database and makes unit testing easier by mocking repositories."
+      },
+      {
+        "name": "Unit of Work",
+        "bestFor": [
+          "Transaction boundaries"
+        ],
+        "patternType": "Data access",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "Python"
+        ],
+        "notes": "Commit a group of changes as one transaction.",
+        "description": "Unit of Work tracks changes to objects during a business operation and persists them in a single commit. It ensures consistency across multiple writes and is frequently implemented by ORMs behind the scenes."
+      },
+      {
+        "name": "Active Record",
+        "bestFor": [
+          "Rapid CRUD apps"
+        ],
+        "patternType": "Data access",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Ruby (Rails)",
+          "PHP (Laravel)",
+          "Many ORMs"
+        ],
+        "notes": "Objects know how to save themselves.",
+        "description": "Active Record combines domain data and persistence methods in one object. It’s fast to build with for CRUD apps but can lead to tangled domain logic in complex systems if not managed carefully."
+      },
+      {
+        "name": "Data Mapper",
+        "bestFor": [
+          "Complex domains",
+          "Persistence separation"
+        ],
+        "patternType": "Data access",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Java (Hibernate)",
+          "C# (EF)",
+          "Python (SQLAlchemy)"
+        ],
+        "notes": "Keep domain model separate from persistence mapping.",
+        "description": "Data Mapper keeps domain objects free of database concerns, using a separate mapping layer to translate between in-memory objects and database rows. This supports richer domain modeling and cleaner boundaries."
+      },
+      {
+        "name": "DAO",
+        "bestFor": [
+          "Legacy enterprise apps"
+        ],
+        "patternType": "Data access",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Java",
+          "C#"
+        ],
+        "notes": "Dedicated objects encapsulate DB queries.",
+        "description": "DAO provides a dedicated class for database operations, often with method-per-query style. It’s a classic enterprise approach and still useful when you want explicit control over SQL and persistence logic."
+      },
+      {
+        "name": "Specification",
+        "bestFor": [
+          "Complex query rules"
+        ],
+        "patternType": "Domain/data",
+        "paradigms": [
+          "OOP",
+          "Functional-friendly"
+        ],
+        "languages": [
+          "Java",
+          "C#",
+          "TypeScript"
+        ],
+        "notes": "Compose business rules as reusable specs.",
+        "description": "Specification represents a business rule or query predicate as an object (or function) that can be combined (AND/OR/NOT). It helps keep rule logic reusable, testable, and composable."
+      }
+    ]
+  },
+  {
+    "section": "UI / frontend state & presentation",
+    "items": [
+      {
+        "name": "MVC",
+        "bestFor": [
+          "Server-rendered web",
+          "Classic apps"
+        ],
+        "patternType": "UI architecture",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Many (Spring MVC, etc.)"
+        ],
+        "notes": "Separate Model, View, Controller.",
+        "description": "MVC separates concerns: the Model holds data/business rules, the View renders the UI, and the Controller handles user input and orchestrates changes. Many web frameworks implement MVC concepts directly."
+      },
+      {
+        "name": "MVP",
+        "bestFor": [
+          "Testable UI logic"
+        ],
+        "patternType": "UI architecture",
+        "paradigms": [
+          "OOP"
+        ],
+        "languages": [
+          "Android (Java/Kotlin)",
+          ".NET"
+        ],
+        "notes": "Presenter owns view logic; view is passive.",
+        "description": "MVP emphasizes a passive View and a Presenter that contains most UI logic. It’s popular where testability is important and you want to avoid embedding logic directly in view components."
+      },
+      {
+        "name": "MVVM",
+        "bestFor": [
+          "Data-binding UIs"
+        ],
+        "patternType": "UI architecture",
+        "paradigms": [
+          "OOP",
+          "Reactive"
+        ],
+        "languages": [
+          "C# (WPF)",
+          "Swift",
+          "Kotlin",
+          "JS frameworks"
+        ],
+        "notes": "ViewModel exposes bindable state.",
+        "description": "MVVM uses a ViewModel that exposes observable/bindable state and commands for the View. It’s strong in environments with data binding and reactive state updates, reducing glue code."
+      },
+      {
+        "name": "Flux / Redux",
+        "bestFor": [
+          "Complex UI state"
+        ],
+        "patternType": "UI state management",
+        "paradigms": [
+          "Functional-ish"
+        ],
+        "languages": [
+          "TypeScript/JavaScript"
+        ],
+        "notes": "Unidirectional data flow with actions/reducers.",
+        "description": "Flux/Redux patterns manage state via explicit actions and pure reducers, producing predictable state transitions. This helps debug complex UI state by making changes explicit and often time-travelable."
+      },
+      {
+        "name": "Component + Unidirectional Data Flow",
+        "bestFor": [
+          "Modern web UIs"
+        ],
+        "patternType": "UI architecture",
+        "paradigms": [
+          "Functional-ish"
+        ],
+        "languages": [
+          "React (JS/TS)",
+          "Elm-ish"
+        ],
+        "notes": "Compose UI from components; keep data flow predictable.",
+        "description": "This emphasizes composable components, local state where appropriate, and predictable top-down data flow. It scales well when combined with state machines, reducers, or centralized stores for complex apps."
+      }
+    ]
+  },
+  {
+    "section": "Functional / FP-native patterns",
+    "items": [
+      {
+        "name": "Pipelines / Composition",
+        "bestFor": [
+          "Data processing",
+          "Business rules"
+        ],
+        "patternType": "FP design",
+        "paradigms": [
+          "Functional"
+        ],
+        "languages": [
+          "Haskell",
+          "F#",
+          "Scala",
+          "Clojure",
+          "TypeScript/JS",
+          "Python"
+        ],
+        "notes": "Build behavior by composing small functions.",
+        "description": "Function composition chains small, focused functions into larger behaviors. It improves readability and testability, especially when functions are pure and data flows in one direction through a pipeline."
+      },
+      {
+        "name": "ADTs + Pattern Matching",
+        "bestFor": [
+          "Domain modeling",
+          "State machines"
+        ],
+        "patternType": "FP design",
+        "paradigms": [
+          "Functional"
+        ],
+        "languages": [
+          "Haskell",
+          "OCaml",
+          "F#",
+          "Scala",
+          "Rust",
+          "Swift"
+        ],
+        "notes": "Model states explicitly; match exhaustively.",
+        "description": "Algebraic Data Types (sum/product types) model closed sets of possibilities (e.g., states). Pattern matching forces explicit handling of cases, reducing bugs and making state machines clearer and safer."
+      },
+      {
+        "name": "Functor / Applicative / Monad",
+        "bestFor": [
+          "Effects",
+          "Async",
+          "Optionality"
+        ],
+        "patternType": "FP design",
+        "paradigms": [
+          "Functional"
+        ],
+        "languages": [
+          "Haskell",
+          "Scala",
+          "F#",
+          "Rust (some)",
+          "JS (libs)"
+        ],
+        "notes": "Abstract composition with context (maybe/async/either).",
+        "description": "These abstractions describe how to map and sequence computations that carry context (like optional values, errors, async). They enable consistent composition patterns across many effect types."
+      },
+      {
+        "name": "Lenses",
+        "bestFor": [
+          "Nested immutable updates"
+        ],
+        "patternType": "FP design",
+        "paradigms": [
+          "Functional"
+        ],
+        "languages": [
+          "Haskell",
+          "Scala",
+          "Clojure",
+          "JS (libs)"
+        ],
+        "notes": "Composable getters/setters for immutable structures.",
+        "description": "Lenses provide a composable way to focus on and update nested data immutably. They reduce boilerplate when working with deeply nested objects while preserving immutability and clarity."
+      },
+      {
+        "name": "Immutability + Persistent Data Structures",
+        "bestFor": [
+          "Concurrency-safe state"
+        ],
+        "patternType": "FP design",
+        "paradigms": [
+          "Functional"
+        ],
+        "languages": [
+          "Clojure",
+          "Scala",
+          "F#",
+          "JS (libs)"
+        ],
+        "notes": "Prefer immutable state with structural sharing.",
+        "description": "Persistent data structures preserve old versions efficiently using structural sharing. Combined with immutability, they simplify reasoning about state, improve concurrency safety, and enable features like undo/history."
+      }
+    ]
+  },
+
+    {
+      "section": "Domain-Driven Design (DDD)",
+      "items": [
+        {
+          "name": "Entity",
+          "bestFor": ["Complex domain models", "Business systems with identity"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Most languages"],
+          "notes": "Domain object defined by identity, not attributes.",
+          "description": "An Entity is a domain object primarily defined by a stable identity (ID) that persists across changes to its attributes. Two entities can have identical fields but still represent different real-world things if their identities differ."
+        },
+        {
+          "name": "Value Object",
+          "bestFor": ["Domain modeling", "Validation", "Immutability"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Functional"],
+          "languages": ["Most languages"],
+          "notes": "A domain value defined by its attributes; typically immutable.",
+          "description": "A Value Object represents a concept like Money, EmailAddress, or Coordinate and is defined only by its values (no identity). They are commonly immutable and can embed validation rules, making illegal states harder to represent."
+        },
+        {
+          "name": "Aggregate",
+          "bestFor": ["Consistency boundaries", "Transactional correctness", "Domain invariants"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Most languages"],
+          "notes": "A consistency boundary with an Aggregate Root entry point.",
+          "description": "An Aggregate is a cluster of related domain objects treated as a single unit for changes. The Aggregate Root is the only object that external code can use to mutate the aggregate, enforcing business invariants and consistency rules."
+        },
+        {
+          "name": "Aggregate Root",
+          "bestFor": ["Enforcing invariants", "Limiting writes", "Modeling boundaries"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Most languages"],
+          "notes": "The entry point for modifying an aggregate.",
+          "description": "The Aggregate Root is the primary entity inside an aggregate that controls access to other members. All changes go through it so it can enforce invariants (e.g., Order controls modifications to OrderItems)."
+        },
+        {
+          "name": "Bounded Context",
+          "bestFor": ["Large systems", "Multiple teams", "Reducing model ambiguity"],
+          "patternType": "DDD",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "A boundary where a model and language are consistent.",
+          "description": "A Bounded Context defines the scope in which terms and domain rules have a specific meaning. It prevents a single global model from becoming inconsistent (e.g., 'Customer' might mean different things in Billing vs Support)."
+        },
+        {
+          "name": "Context Mapping",
+          "bestFor": ["Multi-context systems", "Integration strategy", "Managing dependencies"],
+          "patternType": "DDD",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Defines relationships and integration styles between contexts.",
+          "description": "Context Mapping describes how bounded contexts interact (upstream/downstream, conformist, customer/supplier, ACL). It’s a strategic tool to manage coupling and keep boundaries intact as the system evolves."
+        },
+        {
+          "name": "Domain Event",
+          "bestFor": ["Event-driven workflows", "Decoupling side effects", "Auditing"],
+          "patternType": "DDD",
+          "paradigms": ["Reactive", "OOP", "Functional"],
+          "languages": ["Most languages"],
+          "notes": "A record that something meaningful happened in the domain.",
+          "description": "A Domain Event represents a significant business occurrence (e.g., OrderPlaced). Publishing domain events decouples core domain logic from side effects like notifications, analytics, or projections, and fits naturally with event-driven architectures."
+        },
+        {
+          "name": "Domain Service",
+          "bestFor": ["Domain logic that spans multiple entities", "Rules that don’t belong to one object"],
+          "patternType": "DDD",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Most languages"],
+          "notes": "Domain behavior expressed as a service when it doesn’t fit a single object.",
+          "description": "A Domain Service contains domain logic that conceptually belongs to the domain but not to a single Entity or Value Object. It should speak the ubiquitous language and avoid infrastructure concerns (DB, HTTP, messaging)."
+        },
+        {
+          "name": "Application Service",
+          "bestFor": ["Use-case orchestration", "Transaction coordination", "API boundary workflows"],
+          "patternType": "DDD / Application layer",
+          "paradigms": ["Any"],
+          "languages": ["Most languages"],
+          "notes": "Coordinates a use case; delegates business rules to the domain model.",
+          "description": "An Application Service orchestrates a use case (e.g., PlaceOrder) by calling domain objects, repositories, and external services. It should contain minimal business rules, focusing on workflow and integration."
+        },
+        {
+          "name": "Anti-Corruption Layer (ACL)",
+          "bestFor": ["Legacy integration", "Vendor APIs", "Protecting your domain model"],
+          "patternType": "DDD / Integration",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Translate between external models and your domain model.",
+          "description": "An Anti-Corruption Layer prevents external or legacy models from contaminating your core domain by translating data and behavior at the boundary. It often uses adapters, mappers, and facades to isolate differences."
+        }
+      ]
+    },
+    {
+      "section": "Architecture / Composition",
+      "items": [
+        {
+          "name": "Dependency Injection (DI)",
+          "bestFor": ["Testability", "Modular codebases", "Swappable implementations"],
+          "patternType": "Architecture / Composition",
+          "paradigms": ["OOP", "Imperative", "Functional"],
+          "languages": ["Most languages"],
+          "notes": "Provide dependencies from outside instead of constructing them internally.",
+          "description": "Dependency Injection supplies a component’s dependencies via parameters (constructor/function) rather than creating them internally. This reduces coupling, improves testability, and makes implementations replaceable."
+        },
+        {
+          "name": "Inversion of Control (IoC) Container",
+          "bestFor": ["Large apps", "Complex object graphs", "Framework-based composition"],
+          "patternType": "Architecture / Composition",
+          "paradigms": ["OOP", "Imperative"],
+          "languages": ["Java", "C#", "TypeScript", "Python"],
+          "notes": "A container builds and wires dependencies based on configuration.",
+          "description": "An IoC container constructs objects and injects dependencies automatically based on configuration, annotations, or registrations. It reduces manual wiring at scale but can hide control flow if overused."
+        },
+        {
+          "name": "Plugin Architecture",
+          "bestFor": ["Extensible apps", "Tooling platforms", "Third-party ecosystems"],
+          "patternType": "Architecture",
+          "paradigms": ["Any"],
+          "languages": ["Most languages"],
+          "notes": "Core system loads optional modules/extensions via stable interfaces.",
+          "description": "Plugin Architecture defines a stable core and extension points so features can be added independently. Common in IDEs, build tools, and platforms with third-party extensions."
+        },
+        {
+          "name": "Feature Flags (Toggles)",
+          "bestFor": ["Safe rollouts", "Progressive delivery", "A/B testing"],
+          "patternType": "Architecture / Delivery",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Switch behavior at runtime without redeploying.",
+          "description": "Feature flags enable/disable behavior dynamically for rollouts and experiments. They require lifecycle management to avoid 'flag debt' and confusing combinations."
+        }
+      ]
+    },
+    {
+      "section": "Caching Patterns",
+      "items": [
+        {
+          "name": "Cache-Aside",
+          "bestFor": ["Read-heavy systems", "Simple caching integration"],
+          "patternType": "Caching",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "App checks cache first; on miss, loads from DB and populates cache.",
+          "description": "Cache-Aside (lazy caching) has the application read from cache first; on miss it loads from the source of truth and then writes into cache. It’s easy to adopt but requires careful invalidation/TTL strategy."
+        },
+        {
+          "name": "Read-Through Cache",
+          "bestFor": ["Centralized caching", "Library-managed caches"],
+          "patternType": "Caching",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Cache automatically loads from the backing store on miss.",
+          "description": "With Read-Through caching, clients request data from the cache, and the cache fetches from the backing store on a miss. This simplifies callers but moves loading complexity into cache configuration."
+        },
+        {
+          "name": "Write-Through Cache",
+          "bestFor": ["Reducing stale reads", "Simpler cache correctness"],
+          "patternType": "Caching",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Write to cache and DB synchronously.",
+          "description": "Write-Through updates the cache and the backing store together. It reduces stale reads but adds write latency and must handle partial failures carefully."
+        },
+        {
+          "name": "Write-Behind (Write-Back) Cache",
+          "bestFor": ["High write throughput", "Low-latency writes"],
+          "patternType": "Caching",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Write to cache first; persist to DB asynchronously.",
+          "description": "Write-Behind buffers writes in cache and persists them asynchronously. It improves write latency and throughput but needs durability guarantees or recovery strategies to avoid data loss."
+        }
+      ]
+    },
+    {
+      "section": "Messaging & Integration Patterns",
+      "items": [
+        {
+          "name": "Message Deduplication",
+          "bestFor": ["At-least-once delivery", "Event-driven systems", "Retry-heavy consumers"],
+          "patternType": "Messaging / Integration",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Prevent duplicate processing when messages repeat.",
+          "description": "Deduplication ensures handlers behave correctly when the same message is delivered more than once. Common approaches include storing processed message IDs, using idempotency keys, or enforcing idempotent handler logic."
+        },
+        {
+          "name": "Inbox Pattern",
+          "bestFor": ["Reliable consumers", "Deduplication", "Exactly-once-ish processing"],
+          "patternType": "Messaging / Integration",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Persist inbound messages before processing to enable safe retries.",
+          "description": "Inbox stores inbound messages in durable storage before processing. The inbox record provides a dedupe key and processing state so retries are safe and messages aren’t lost, complementing the Outbox pattern on the producer side."
+        },
+        {
+          "name": "Dead Letter Queue (DLQ)",
+          "bestFor": ["Poison message handling", "Operational workflows"],
+          "patternType": "Messaging / Operations",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Route repeatedly failing messages for inspection and handling.",
+          "description": "A DLQ holds messages that repeatedly fail processing. It allows alerting, inspection, and remediation without blocking the main queue, improving system reliability and operability."
+        },
+        {
+          "name": "Claim Check",
+          "bestFor": ["Large payload messaging", "Reducing broker load"],
+          "patternType": "Messaging / Integration",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Send a reference to externally stored payload instead of the payload.",
+          "description": "Claim Check stores large payloads in external storage (object store/DB) and sends only a reference in the message. This keeps messages small and avoids broker size/time limits."
+        },
+        {
+          "name": "Delayed Retry Queue",
+          "bestFor": ["Backoff retries", "Smoothing transient failures"],
+          "patternType": "Messaging / Resiliency",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Retry later using delayed delivery or delay queues.",
+          "description": "Instead of retrying immediately, failed messages are routed to a delayed queue and re-enqueued after a wait period. This implements backoff at the messaging layer and reduces overload during outages."
+        }
+      ]
+    },
+    {
+      "section": "Concurrency & Correctness Patterns",
+      "items": [
+        {
+          "name": "Backpressure",
+          "bestFor": ["Streaming systems", "High-throughput pipelines", "Protecting consumers"],
+          "patternType": "Concurrency / Streaming",
+          "paradigms": ["Reactive", "Any"],
+          "languages": ["Any"],
+          "notes": "Signal producers to slow down when consumers are overloaded.",
+          "description": "Backpressure prevents overload by letting consumers communicate demand/capacity so producers don’t emit faster than can be handled. Implemented via bounded queues, reactive-stream demand, or rate limits."
+        },
+        {
+          "name": "Structured Concurrency",
+          "bestFor": ["Async correctness", "Cancellation", "Lifecycle management"],
+          "patternType": "Concurrency",
+          "paradigms": ["Imperative", "Any"],
+          "languages": ["Kotlin", "Swift", "Rust", "Python", "Java (newer)"],
+          "notes": "Tie task lifetimes to a scope; enable safe cancellation and cleanup.",
+          "description": "Structured concurrency organizes tasks into scopes so child tasks can’t outlive their parent. This improves cleanup, cancellation, and error propagation compared to unstructured fire-and-forget async."
+        },
+        {
+          "name": "Snapshot / Immutable State",
+          "bestFor": ["Concurrent reads", "Undo/history", "Deterministic behavior"],
+          "patternType": "Concurrency / State management",
+          "paradigms": ["Functional", "Any"],
+          "languages": ["Most languages"],
+          "notes": "Use immutable snapshots to avoid shared mutable state hazards.",
+          "description": "Snapshotting treats state as immutable versions. Readers use a consistent snapshot while writers create a new version, reducing lock contention and simplifying reasoning about concurrent access."
+        }
+      ]
+    },
+    {
+      "section": "Security Patterns",
+      "items": [
+        {
+          "name": "RBAC",
+          "bestFor": ["Enterprise authorization", "Admin consoles", "Simple permission models"],
+          "patternType": "Security / Authorization",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Assign permissions to roles; users receive roles.",
+          "description": "Role-Based Access Control groups permissions into roles (Admin, Editor, Viewer). Users are assigned roles, which grant their permissions. It’s straightforward but can become rigid when exceptions multiply."
+        },
+        {
+          "name": "ABAC",
+          "bestFor": ["Fine-grained authorization", "Multi-tenant systems", "Policy-driven access"],
+          "patternType": "Security / Authorization",
+          "paradigms": ["Any"],
+          "languages": ["Any"],
+          "notes": "Authorization based on attributes and policies (context-aware).",
+          "description": "Attribute-Based Access Control evaluates access using attributes of the user, resource, and environment (tenant, region, time) against policies. It’s flexible but requires good tooling and testing to manage policy complexity."
+        }
+      ]
+    },
+      {
+        "section": "Enterprise Integration Patterns (EIP)",
+        "items": [
+          {
+            "name": "Idempotent Consumer",
+            "bestFor": ["Event-driven systems", "At-least-once delivery", "Retry-safe processing"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Process a message safely even if it is delivered multiple times.",
+            "description": "Design consumers so repeated delivery does not create duplicate side effects. Common techniques include dedupe keys, storing processed message IDs with TTL, and using idempotent writes/upserts."
+          },
+          {
+            "name": "Competing Consumers",
+            "bestFor": ["Scaling message processing", "Queue-based workloads", "Background jobs"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Multiple consumers share a queue subscription to scale throughput.",
+            "description": "Run N consumer instances reading from the same queue/subscription so work is distributed across them. Requires safe processing (idempotency), good visibility timeouts, and backpressure controls."
+          },
+          {
+            "name": "Content-Based Router",
+            "bestFor": ["Routing by event type", "Multi-tenant routing", "Integration hubs"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Route messages to different channels based on message content/headers.",
+            "description": "A router examines message headers/body and forwards it to the appropriate channel/handler (e.g., OrderPlaced → fulfillment; PaymentFailed → support). Keeps producers simple and centralizes routing rules."
+          },
+          {
+            "name": "Message Filter",
+            "bestFor": ["Dropping irrelevant events", "Reducing downstream load", "Selective processing"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Discard messages that are not relevant to a consumer.",
+            "description": "Filter messages early using predicates on headers/body so downstream components only see what they need. Often combined with routing and schema validation."
+          },
+          {
+            "name": "Message Translator",
+            "bestFor": ["Interoperability", "Schema/version mismatch", "Legacy integration"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Transform message formats between producers and consumers.",
+            "description": "Translate messages from one schema/protocol to another (e.g., vendor payload → internal event). This can live in an anti-corruption layer and helps keep your domain model clean."
+          },
+          {
+            "name": "Splitter",
+            "bestFor": ["Batch payloads", "Fan-out processing", "Parallelism"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Split one message into multiple smaller messages.",
+            "description": "Break a large/batched message into individual messages so each part can be processed independently (and retried independently). Often paired with correlation IDs."
+          },
+          {
+            "name": "Aggregator",
+            "bestFor": ["Joining results", "Multi-step workflows", "Scatter-gather"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Combine multiple messages into a single outcome.",
+            "description": "Collect messages that share a correlation key and combine them when a completeness rule is met (count reached, time window expired, all parts arrived). Requires careful timeout and partial-failure handling."
+          },
+          {
+            "name": "Resequencer",
+            "bestFor": ["Out-of-order delivery", "Event streams", "Rebuilding ordering guarantees"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Restore message ordering before processing.",
+            "description": "Buffers messages and emits them in the correct order (by sequence number or event time). Useful when ordering is important but transport can reorder delivery."
+          },
+          {
+            "name": "Correlation ID",
+            "bestFor": ["Tracing workflows", "Request-reply over async", "Debugging"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Attach an ID that ties together related messages/steps.",
+            "description": "Use a correlation identifier to connect events and commands belonging to the same business process. Essential for multi-step async workflows, aggregators, and end-to-end observability."
+          },
+          {
+            "name": "Request–Reply (Async)",
+            "bestFor": ["RPC-like flows over messaging", "Long-running work", "Decoupled services"],
+            "patternType": "Messaging / EIP",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Send a request message and receive a response message later.",
+            "description": "Implements request/response semantics over a message broker using reply-to addresses/topics and correlation IDs. Useful when HTTP would time out or when services are decoupled by design."
+          }
+        ]
+      },
+      {
+        "section": "Deployment & Operations Patterns",
+        "items": [
+          {
+            "name": "Blue–Green Deployment",
+            "bestFor": ["Zero-downtime releases", "Fast rollback", "Web services"],
+            "patternType": "Operations / Deployment",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Maintain two production environments and switch traffic.",
+            "description": "Deploy the new version to the idle environment (green), validate, then switch traffic from blue → green. Rollback is quick by switching back. Requires careful DB migration strategy."
+          },
+          {
+            "name": "Canary Release",
+            "bestFor": ["Risk reduction", "Progressive rollout", "Observability-driven releases"],
+            "patternType": "Operations / Deployment",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Roll out to a small slice first, then expand.",
+            "description": "Ship changes to a small % of users/traffic, monitor metrics, then gradually ramp up. Requires strong monitoring and the ability to halt/rollback quickly."
+          },
+          {
+            "name": "Rolling Deployment",
+            "bestFor": ["Clustered services", "Avoiding full downtime", "Simple progressive updates"],
+            "patternType": "Operations / Deployment",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Update instances gradually across a fleet.",
+            "description": "Replace instances in batches while keeping the service available. Works well with stateless services and health checks; can be risky when versions are not compatible."
+          },
+          {
+            "name": "Health Checks (Readiness/Liveness)",
+            "bestFor": ["Kubernetes", "Load balancers", "Self-healing systems"],
+            "patternType": "Operations / Reliability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Expose endpoints that report service health and readiness.",
+            "description": "Liveness checks detect when a process should be restarted. Readiness checks detect when it can receive traffic. Correct design avoids cascading failures and prevents routing to unhealthy instances."
+          },
+          {
+            "name": "Graceful Shutdown",
+            "bestFor": ["Zero-downtime deploys", "Avoiding dropped requests", "Workers/consumers"],
+            "patternType": "Operations / Reliability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Stop accepting new work, finish in-flight work, then exit.",
+            "description": "On shutdown signals, stop new requests, drain queues, flush logs/metrics, and close connections cleanly. Prevents partial writes, duplicate work, and client-visible errors."
+          },
+          {
+            "name": "Load Shedding",
+            "bestFor": ["Overload protection", "Maintaining core availability", "Degraded modes"],
+            "patternType": "Operations / Resiliency",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Drop non-critical work intentionally under load.",
+            "description": "When overloaded, reject or degrade requests to preserve system health (e.g., shed expensive endpoints, return cached results, disable optional features). Works best with clear priorities and SLO-driven triggers."
+          },
+          {
+            "name": "Service Warmup",
+            "bestFor": ["Cold start mitigation", "JIT/runtime warming", "Cache priming"],
+            "patternType": "Operations / Performance",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Prepare instances before sending full traffic.",
+            "description": "Perform warmup steps (load models, prime caches, compile templates, establish pools) before marking an instance ready. Reduces tail latency and startup-related incidents."
+          }
+        ]
+      },
+      {
+        "section": "Observability Patterns",
+        "items": [
+          {
+            "name": "Structured Logging",
+            "bestFor": ["Production debugging", "Searchable logs", "Log-based analytics"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Emit logs as structured fields, not free-form strings.",
+            "description": "Use JSON (or key/value) logs with consistent fields (level, service, requestId, userId, eventType). Makes logs queryable, supports dashboards/alerts, and reduces ambiguity during incident response."
+          },
+          {
+            "name": "Request/Correlation ID Propagation",
+            "bestFor": ["Microservices tracing", "Debugging distributed flows", "Support tickets"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Carry a unique ID across boundaries (HTTP, queues, jobs).",
+            "description": "Generate or accept a request ID at the edge and propagate it through downstream calls and messages. Include it in logs and responses so a single user issue can be traced end-to-end."
+          },
+          {
+            "name": "Distributed Tracing (Trace/Span)",
+            "bestFor": ["Latency investigation", "Microservices", "Bottleneck discovery"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Model requests as traces containing timed spans.",
+            "description": "Instrument services to emit trace data (traceId, spans, timing, attributes). This reveals where time is spent across service boundaries and helps identify slow dependencies or hot paths."
+          },
+          {
+            "name": "RED Metrics",
+            "bestFor": ["HTTP/Request-based services", "SRE dashboards", "Alerting"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Track Rate, Errors, Duration for services.",
+            "description": "A simple service health lens: request rate, error rate, and duration (latency). Useful as a default dashboard and for setting actionable alerts."
+          },
+          {
+            "name": "USE Metrics",
+            "bestFor": ["Infrastructure monitoring", "Capacity planning", "Node health"],
+            "patternType": "Observability",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Track Utilization, Saturation, Errors for resources.",
+            "description": "A resource-centric lens: utilization (busy%), saturation (queued work), and errors (failures). Commonly used for CPU, memory, disks, and network."
+          },
+          {
+            "name": "SLO / Error Budget",
+            "bestFor": ["Reliability goals", "Release governance", "Prioritization"],
+            "patternType": "Observability / Operations",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Define targets and budget unreliability intentionally.",
+            "description": "Set Service Level Objectives (SLOs) based on user-focused SLIs (latency, availability). Use error budgets to balance feature velocity against reliability work."
+          }
+        ]
+      },
+      {
+        "section": "Data Consistency & Persistence Patterns",
+        "items": [
+          {
+            "name": "Optimistic Concurrency Control (OCC)",
+            "bestFor": ["High read / moderate write systems", "Avoiding lock contention", "REST writes"],
+            "patternType": "Data / Consistency",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Detect write conflicts using versions instead of locks.",
+            "description": "Store a version (or etag) with rows/documents and only update if the version matches (compare-and-swap). If it changed, retry or surface a conflict. Prevents lost updates without heavy locking."
+          },
+          {
+            "name": "Soft Delete",
+            "bestFor": ["Auditability", "Undo/recovery", "Compliance needs"],
+            "patternType": "Data / Persistence",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Mark records as deleted instead of removing them.",
+            "description": "Replace hard deletes with a deleted flag/timestamp. Enables recovery and auditing, but requires consistent filtering and careful handling of unique constraints and query performance."
+          },
+          {
+            "name": "Audit Log",
+            "bestFor": ["Compliance", "Forensics", "Change history"],
+            "patternType": "Data / Persistence",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Record who changed what and when (and sometimes why).",
+            "description": "Persist an append-only log of significant changes including actor, timestamp, and before/after. Complements event sourcing; can be implemented via app logic, DB triggers, or event streams."
+          },
+          {
+            "name": "Upsert",
+            "bestFor": ["Idempotent writes", "Sync/ingestion pipelines", "Deduplication"],
+            "patternType": "Data / Persistence",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Insert if missing, otherwise update.",
+            "description": "Upsert provides a single operation that is naturally retry-friendly. Often paired with idempotency keys and unique constraints to safely handle repeated ingestion or message replays."
+          },
+          {
+            "name": "Multi-Tenancy (Tenant Key Pattern)",
+            "bestFor": ["SaaS apps", "Tenant isolation", "Authorization by tenant"],
+            "patternType": "Data / Architecture",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Include tenantId in data model and enforce it everywhere.",
+            "description": "Store tenantId on all tenant-owned data and enforce it in queries, indexes, and authorization. Prevent cross-tenant leaks via code conventions, query helpers, and DB constraints where possible."
+          }
+        ]
+      },
+      {
+        "section": "API & Boundary Patterns",
+        "items": [
+          {
+            "name": "API Gateway",
+            "bestFor": ["Microservices", "Cross-cutting concerns", "Unified external API"],
+            "patternType": "Architecture / API",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Single entry point for clients; routes to internal services.",
+            "description": "Centralize concerns like authentication, rate limiting, routing, request shaping, and observability at the edge. Reduces duplication but can become a bottleneck or monolith if overgrown."
+          },
+          {
+            "name": "Backend for Frontend (BFF)",
+            "bestFor": ["Multiple clients (web/mobile)", "UI-specific APIs", "Reducing client complexity"],
+            "patternType": "Architecture / API",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Create a backend tailored to a specific UI/client.",
+            "description": "A BFF serves one client type and shapes data exactly for that UI, reducing overfetching/underfetching and avoiding UI logic bleeding into general-purpose APIs."
+          },
+          {
+            "name": "Versioned API Contract",
+            "bestFor": ["Public APIs", "Backward compatibility", "Long-lived clients"],
+            "patternType": "Architecture / API",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Evolve APIs without breaking existing consumers.",
+            "description": "Use a clear versioning strategy (URL, header, media type) plus deprecation policy. Pair with compatibility testing and gradual migrations to avoid breaking clients."
+          },
+          {
+            "name": "Branch by Abstraction",
+            "bestFor": ["Large refactors", "Migrations", "Reducing rewrite risk"],
+            "patternType": "Migration",
+            "paradigms": ["Any"],
+            "languages": ["Most languages"],
+            "notes": "Introduce an abstraction layer to swap implementations gradually.",
+            "description": "Insert an interface (or seam) so old and new implementations can coexist. Route traffic progressively to the new implementation until the old one can be removed—safer than big-bang rewrites."
+          },
+          {
+            "name": "Bulkhead at the Boundary",
+            "bestFor": ["Protecting critical endpoints", "Preventing noisy neighbor issues"],
+            "patternType": "Architecture / Resiliency",
+            "paradigms": ["Any"],
+            "languages": ["Any"],
+            "notes": "Isolate resources per endpoint/tenant/priority class.",
+            "description": "Use separate pools/quotas for different request classes so one heavy route or tenant cannot starve the rest. Often implemented in gateways, reverse proxies, or service middleware."
+          }
+        ]
+      },
+      {
+        "section": "Frontend State & UI Patterns",
+        "items": [
+          {
+            "name": "State Machines (UI)",
+            "bestFor": ["Complex UI flows", "Multi-step forms", "Predictable UI states"],
+            "patternType": "UI / State management",
+            "paradigms": ["Functional-ish", "Reactive"],
+            "languages": ["TypeScript/JavaScript", "Swift", "Kotlin"],
+            "notes": "Model UI as explicit states and transitions.",
+            "description": "Define a finite set of states (idle, loading, success, error) and allowed transitions. Prevents impossible UI states and replaces scattered boolean flags with a single coherent model."
+          },
+          {
+            "name": "Reducer Pattern",
+            "bestFor": ["Complex component state", "Predictable updates", "Event-driven UI"],
+            "patternType": "UI / State management",
+            "paradigms": ["Functional-ish"],
+            "languages": ["TypeScript/JavaScript"],
+            "notes": "Update state via actions and a pure reducer function.",
+            "description": "Use action objects and a reducer to compute next state from previous state. Improves debuggability and keeps transitions explicit; commonly used in React via useReducer even without Redux."
+          },
+          {
+            "name": "Container / Presentational Components",
+            "bestFor": ["Separation of concerns", "Testability", "Reusable UI components"],
+            "patternType": "UI architecture",
+            "paradigms": ["Functional-ish"],
+            "languages": ["TypeScript/JavaScript"],
+            "notes": "Separate data-fetching/logic from rendering components.",
+            "description": "Container components handle data, side effects, and wiring; presentational components focus on UI rendering and props. This improves reuse and keeps UI components easier to test."
+          },
+          {
+            "name": "Controlled vs Uncontrolled Inputs",
+            "bestFor": ["Forms", "Validation", "Performance tradeoffs"],
+            "patternType": "UI patterns",
+            "paradigms": ["Functional-ish"],
+            "languages": ["TypeScript/JavaScript"],
+            "notes": "Choose whether state is owned by React or by the DOM.",
+            "description": "Controlled inputs store the current value in state and update via onChange (great for validation). Uncontrolled inputs let the DOM keep state and read values on submit (can be simpler and faster for huge forms)."
+          },
+          {
+            "name": "Error Boundary",
+            "bestFor": ["Resilient UIs", "Graceful UI failure", "Reducing white screens"],
+            "patternType": "UI / Resiliency",
+            "paradigms": ["OOP", "Imperative"],
+            "languages": ["TypeScript/JavaScript (React)"],
+            "notes": "Catch rendering errors and show a fallback UI.",
+            "description": "Wrap UI regions so a crash in one component doesn’t take down the whole page. Log the error and render a fallback so the app remains usable."
+          }
+        ]
+      },
+      {
+        "section": "Language & Runtime Specific Patterns",
+        "items": [
+          {
+            "name": "RAII",
+            "bestFor": ["Resource safety", "Exception-safe cleanup", "Systems programming"],
+            "patternType": "Language-specific",
+            "paradigms": ["Imperative", "OOP"],
+            "languages": ["C++", "Rust (similar concept)"],
+            "notes": "Acquire resources in initialization; release automatically on scope exit.",
+            "description": "Resource Acquisition Is Initialization ties resource lifetime (files, locks, memory) to object lifetime. Destructors (or drop semantics) guarantee cleanup, reducing leaks and making code safer under early returns/errors."
+          },
+          {
+            "name": "Typestate",
+            "bestFor": ["Protocol correctness", "State-dependent APIs", "Compile-time guarantees"],
+            "patternType": "Language-specific",
+            "paradigms": ["Functional-ish", "Imperative"],
+            "languages": ["Rust", "TypeScript", "Scala"],
+            "notes": "Encode valid states in types so invalid usage won’t compile.",
+            "description": "Model an object’s state using types (e.g., Connected vs Disconnected) so only valid operations are available in each state. Prevents runtime bugs in workflows and protocols."
+          },
+          {
+            "name": "Ownership / Borrowing Discipline",
+            "bestFor": ["Memory safety", "Concurrency safety", "Avoiding shared mutable state"],
+            "patternType": "Language-specific",
+            "paradigms": ["Imperative", "Functional-ish"],
+            "languages": ["Rust"],
+            "notes": "Control aliasing and mutation via ownership rules.",
+            "description": "Use single ownership for mutation and controlled borrowing for sharing. This eliminates large classes of memory and concurrency bugs by construction, but requires explicit design around lifetimes and shared data."
+          },
+          {
+            "name": "Null Object",
+            "bestFor": ["Avoiding null checks", "Default behaviors", "Cleaner APIs"],
+            "patternType": "Behavioral (non-GoF common)",
+            "paradigms": ["OOP", "Imperative"],
+            "languages": ["Most languages"],
+            "notes": "Use a do-nothing implementation instead of null.",
+            "description": "Provide an object that implements the interface with safe no-op behavior (e.g., NullLogger). Reduces null checks and clarifies default behavior, but ensure it doesn’t hide real errors."
+          },
+          {
+            "name": "Object Pool",
+            "bestFor": ["Expensive object creation", "High-frequency allocations", "Real-time systems"],
+            "patternType": "Performance",
+            "paradigms": ["Imperative", "OOP"],
+            "languages": ["C++", "C#", "Java", "Rust"],
+            "notes": "Reuse objects instead of allocating repeatedly.",
+            "description": "Maintain a pool of reusable objects to reduce allocation overhead and GC pressure. Useful in real-time or allocation-heavy systems; can be counterproductive if it complicates correctness or modern allocators make it unnecessary."
+          }
+        ]
+      }
+]
