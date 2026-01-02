@@ -9,7 +9,7 @@ function WeddingPhotos() {
         <h1>Wedding Photos</h1>
         <p>Our Special Day</p>
       </div>
-      <div className="wedding-content">
+      <div className="wedding-content-gallery">
         <WeddingPhotoGallery />
       </div>
     </div>
