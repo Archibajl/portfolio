@@ -18,9 +18,7 @@ const R2_PUBLIC_URL = process.env.R2_PUBLIC_URL;
 let s3Client = null;
 if (R2_ACCOUNT_ID && R2_ACCESS_KEY_ID && R2_SECRET_ACCESS_KEY) {
   const endpoint = `https://${R2_ACCOUNT_ID}.r2.cloudflarestorage.com`;
-  console.log('[R2] Initializing S3 client with endpoint:', endpoint);
-  console.log('[R2] Bucket name:', R2_BUCKET_NAME);
-  console.log('[R2] Access Key ID:', R2_ACCESS_KEY_ID.substring(0, 8) + '...');
+  console.log('[R2] Initializing S3 client with endpoint:');
 
   s3Client = new S3Client({
     region: 'auto',
