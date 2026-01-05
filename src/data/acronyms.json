@@ -1,0 +1,282 @@
+[
+  {
+    "key": "GoF",
+    "expansion": "Gang of Four",
+    "explanation": "Refers to the authors of the classic book 'Design Patterns' (Gamma, Helm, Johnson, Vlissides). Often used to label the original OO patterns set."
+  },
+  {
+    "key": "OOP",
+    "expansion": "Object-Oriented Programming",
+    "explanation": "Programming style organized around objects/classes (encapsulation, inheritance, polymorphism)."
+  },
+  {
+    "key": "FP",
+    "expansion": "Functional Programming",
+    "explanation": "Programming style emphasizing pure functions, immutability, and function composition."
+  },
+  {
+    "key": "CRUD",
+    "expansion": "Create, Read, Update, Delete",
+    "explanation": "Common set of operations for data-driven applications."
+  },
+  {
+    "key": "API",
+    "expansion": "Application Programming Interface",
+    "explanation": "A contract for interacting with software components (functions, endpoints, types, protocols)."
+  },
+  {
+    "key": "SDK",
+    "expansion": "Software Development Kit",
+    "explanation": "A packaged set of tools/libraries/docs for building against a platform/service."
+  },
+  {
+    "key": "UI",
+    "expansion": "User Interface",
+    "explanation": "The part of an application users interact with (screens, controls, layout, inputs)."
+  },
+  {
+    "key": "I/O",
+    "expansion": "Input/Output",
+    "explanation": "Reading/writing data (files, network, streams, devices, stdout/stderr, etc.)."
+  },
+  {
+    "key": "HTTP",
+    "expansion": "Hypertext Transfer Protocol",
+    "explanation": "The primary protocol of the web used by browsers and APIs."
+  },
+  {
+    "key": "RPC",
+    "expansion": "Remote Procedure Call",
+    "explanation": "Calling a function/method on another machine/process as if it were local (e.g., gRPC, JSON-RPC)."
+  },
+  {
+    "key": "AST",
+    "expansion": "Abstract Syntax Tree",
+    "explanation": "Tree representation of source code structure used by compilers, linters, and code analyzers."
+  },
+  {
+    "key": "ORM",
+    "expansion": "Object-Relational Mapping",
+    "explanation": "Maps objects/classes to database tables (and vice versa) to simplify persistence."
+  },
+  {
+    "key": "DB",
+    "expansion": "Database",
+    "explanation": "A system for storing and querying structured data (SQL/NoSQL)."
+  },
+  {
+    "key": "DTO",
+    "expansion": "Data Transfer Object",
+    "explanation": "A simple object used to move data between layers/services (often without behavior)."
+  },
+  {
+    "key": "DAO",
+    "expansion": "Data Access Object",
+    "explanation": "A pattern that provides an abstract interface to a database or persistence mechanism, separating data access logic from business logic."
+  },
+  {
+    "key": "CQRS",
+    "expansion": "Command Query Responsibility Segregation",
+    "explanation": "Architectural pattern separating write commands from read queries and often using different models for each."
+  },
+  {
+    "key": "SOA",
+    "expansion": "Service-Oriented Architecture",
+    "explanation": "Architecture style organizing systems as reusable services with well-defined interfaces (often enterprise-focused)."
+  },
+  {
+    "key": "CSP",
+    "expansion": "Communicating Sequential Processes",
+    "explanation": "Concurrency model where independent processes communicate via message passing (often channels)."
+  },
+  {
+    "key": "MVC",
+    "expansion": "Model–View–Controller",
+    "explanation": "UI architecture separating data/model, rendering/view, and interaction/controller logic."
+  },
+  {
+    "key": "MVP",
+    "expansion": "Model–View–Presenter",
+    "explanation": "UI architecture where Presenter contains most view logic; typically easier to unit test than classic MVC."
+  },
+  {
+    "key": "MVVM",
+    "expansion": "Model–View–ViewModel",
+    "explanation": "UI architecture where ViewModel exposes observable state for data binding."
+  },
+  {
+    "key": "WPF",
+    "expansion": "Windows Presentation Foundation",
+    "explanation": "A .NET UI framework that popularized MVVM patterns with data binding."
+  },
+  {
+    "key": "JVM",
+    "expansion": "Java Virtual Machine",
+    "explanation": "Runtime that executes Java bytecode; many languages target it (Java, Kotlin, Scala, etc.)."
+  },
+  {
+    "key": ".NET",
+    "expansion": ".NET Platform",
+    "explanation": "Microsoft runtime/platform for languages like C#; includes libraries, tooling, and runtimes."
+  },
+  {
+    "key": "ECS",
+    "expansion": "Entity Component System",
+    "explanation": "Game architecture pattern organizing entities as IDs with data components and behavior systems (composition over inheritance)."
+  },
+  {
+    "key": "DDD",
+    "expansion": "Domain-Driven Design",
+    "explanation": "An approach to designing software around the business domain model, emphasizing ubiquitous language, bounded contexts, and domain-centric architecture."
+  },
+  {
+    "key": "DI",
+    "expansion": "Dependency Injection",
+    "explanation": "A technique where dependencies are provided to a component instead of being created inside it, improving testability and modularity."
+  },
+  {
+    "key": "IoC",
+    "expansion": "Inversion of Control",
+    "explanation": "A principle where control flow is inverted so that frameworks or containers call your code rather than your code calling the framework directly."
+  },
+  {
+    "key": "DLQ",
+    "expansion": "Dead Letter Queue",
+    "explanation": "A queue where messages that cannot be processed successfully are placed for later inspection, retry, or manual handling."
+  },
+  {
+    "key": "RAII",
+    "expansion": "Resource Acquisition Is Initialization",
+    "explanation": "A C++ idiom where resource lifetime is bound to object lifetime, ensuring resources are automatically released when objects go out of scope."
+  },
+  {
+    "key": "RBAC",
+    "expansion": "Role-Based Access Control",
+    "explanation": "An authorization model where permissions are granted to roles, and users inherit permissions through assigned roles."
+  },
+  {
+    "key": "ABAC",
+    "expansion": "Attribute-Based Access Control",
+    "explanation": "An authorization model that evaluates access based on attributes (user, resource, environment) and policies, offering more flexibility than RBAC."
+  },
+  {
+    "key": "OIDC",
+    "expansion": "OpenID Connect",
+    "explanation": "An identity layer on top of OAuth 2.0 that standardizes user authentication and identity claims."
+  },
+  {
+    "key": "OAuth2",
+    "expansion": "OAuth 2.0",
+    "explanation": "An authorization framework that enables delegated access to resources via tokens."
+  },
+    {
+      "key": "EIP",
+      "expansion": "Enterprise Integration Patterns",
+      "explanation": "A catalog of messaging and integration patterns (popularized by Hohpe & Woolf) used to design reliable message-based systems (routers, filters, splitters, aggregators, etc.)."
+    },
+    {
+      "key": "SLO",
+      "expansion": "Service Level Objective",
+      "explanation": "A reliability target for a service over a period of time (e.g., 99.9% availability or 95% of requests under 300ms)."
+    },
+    {
+      "key": "SLI",
+      "expansion": "Service Level Indicator",
+      "explanation": "A measured metric that reflects service behavior from a user perspective (latency, error rate, availability). Used to evaluate SLOs."
+    },
+    {
+      "key": "SLA",
+      "expansion": "Service Level Agreement",
+      "explanation": "A formal contract that may include SLOs plus business consequences (credits/penalties). Typically customer-facing."
+    },
+    {
+      "key": "RED",
+      "expansion": "Rate, Errors, Duration",
+      "explanation": "An observability framework for request-driven services: track request rate, error rate, and request duration (latency)."
+    },
+    {
+      "key": "USE",
+      "expansion": "Utilization, Saturation, Errors",
+      "explanation": "An observability framework for resources (CPU, memory, disk, network): track utilization, saturation (queued work), and errors."
+    },
+    {
+      "key": "MTTR",
+      "expansion": "Mean Time To Recovery",
+      "explanation": "Average time to restore service after an incident. A key reliability/ops metric."
+    },
+    {
+      "key": "MTBF",
+      "expansion": "Mean Time Between Failures",
+      "explanation": "Average time between service-impacting failures. Often used in reliability engineering."
+    },
+    {
+      "key": "RTO",
+      "expansion": "Recovery Time Objective",
+      "explanation": "Maximum acceptable time to restore service after an outage or disaster."
+    },
+    {
+      "key": "RPO",
+      "expansion": "Recovery Point Objective",
+      "explanation": "Maximum acceptable amount of data loss measured in time (e.g., 'up to 5 minutes of data loss')."
+    },
+    {
+      "key": "OCC",
+      "expansion": "Optimistic Concurrency Control",
+      "explanation": "A technique for handling concurrent writes by detecting conflicts with version checks (instead of using locks)."
+    },
+    {
+      "key": "ETag",
+      "expansion": "Entity Tag",
+      "explanation": "An HTTP mechanism used for caching and optimistic concurrency (If-Match/If-None-Match). Often used as a version identifier for resources."
+    },
+    {
+      "key": "TTL",
+      "expansion": "Time To Live",
+      "explanation": "How long cached data, sessions, tokens, or messages remain valid before expiring automatically."
+    },
+    {
+      "key": "BFF",
+      "expansion": "Backend for Frontend",
+      "explanation": "A pattern where each client type (web/mobile) has a dedicated backend tailored to its UI needs, reducing client complexity and overfetching."
+    },
+    {
+      "key": "CD",
+      "expansion": "Continuous Delivery",
+      "explanation": "Practice of keeping software deployable at all times through automation; releases are typically a business decision."
+    },
+    {
+      "key": "CI",
+      "expansion": "Continuous Integration",
+      "explanation": "Practice of frequently merging changes into a shared branch with automated builds/tests to detect issues early."
+    },
+    {
+      "key": "K8s",
+      "expansion": "Kubernetes",
+      "explanation": "A container orchestration platform providing scheduling, scaling, service discovery, and health checks for distributed applications."
+    },
+    {
+      "key": "QoS",
+      "expansion": "Quality of Service",
+      "explanation": "A set of guarantees or policies around performance and reliability (priorities, bandwidth, latency, quotas)."
+    },
+    {
+      "key": "CAS",
+      "expansion": "Compare-And-Swap",
+      "explanation": "An atomic operation used to update a value only if it matches an expected value (common in lock-free programming and OCC-style updates)."
+    },
+    {
+      "key": "PII",
+      "expansion": "Personally Identifiable Information",
+      "explanation": "Information that can identify a person (directly or indirectly). Important for security, privacy, and compliance design."
+    },
+    {
+      "key": "SSO",
+      "expansion": "Single Sign-On",
+      "explanation": "Authentication approach allowing a user to log in once and access multiple systems, often implemented with OIDC/SAML."
+    },
+    {
+      "key": "SAML",
+      "expansion": "Security Assertion Markup Language",
+      "explanation": "A standard for exchanging authentication/authorization assertions, commonly used for enterprise SSO."
+    }  
+]
