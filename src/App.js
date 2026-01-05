@@ -25,31 +25,41 @@ function App() {
             <Landing /> </div>} />
         <Route path="/" element={<div>
             <Landing /> </div>} />
-          <Route path="/pages/HomePage" element={<div>
+          <Route path="/pages/HomePage" element={<>
             <Heading />
-            <Home />
+            <div className="page-content">
+              <Home />
+            </div>
             <Footer />
-            </div>} />
-          <Route path="/pages/Projects" element={<div>
+            </>} />
+          <Route path="/pages/Projects" element={<>
             <Heading />
-            <Projects />
+            <div className="page-content">
+              <Projects />
+            </div>
             <Footer />
-            </div>}/>
-          <Route path="/pages/ReactPgs" element={<div>
+            </>}/>
+          <Route path="/pages/ReactPgs" element={<>
             <Heading />
-            <ReactPgs />
+            <div className="page-content">
+              <ReactPgs />
+            </div>
             <Footer />
-          </div>}/>
-          <Route path="/pages/Resume" element={<div>
+          </>}/>
+          <Route path="/pages/Resume" element={<>
             <Heading />
-            <Resume />
+            <div className="page-content">
+              <Resume />
+            </div>
             <Footer />
-          </div>}/>
-          <Route path="/pages/About" element={<div>
+          </>}/>
+          <Route path="/pages/About" element={<>
             <Heading />
-            <About />
+            <div className="page-content">
+              <About />
+            </div>
             <Footer />
-          </div>}/>
+          </>}/>
           <Route path="/pages/*" element={<div>
             <Landing />
             <Footer />
