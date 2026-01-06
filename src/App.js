@@ -7,8 +7,8 @@ import ReactPgs from "./pages/ReactPgs.js";
 import Resume from "./pages/Resume.js";
 import About from "./pages/About.js";
 import Home from "./pages/HomePage";
-import Landing from "./components/Landing.js";
 import WeddingPhotos from "./pages/WeddingPhotos";
+import Landing from "./components/Landing.js";
 import DesignPatternsGuide from "./pages/DesignPatternsGuide.jsx";
 import Nav from "react-bootstrap/Nav";
 import lnkInImg from "./images/linkedIn_PNG32.png";
@@ -55,27 +55,23 @@ function App() {
             </div>
             <Footer />
           </>}/>
-          <Route path="/pages/About" element={<>
+          <Route path="/pages/About" element={<div>
             <Heading />
             <div className="page-content">
               <About />
             </div>
             <Footer />
-          </>}/>
-          <Route path="/pages/DesignPatternsGuide" element={<>
+          </div>}/>
+          <Route path="/pages/DesignPatternsGuide" element={<div>
             <Heading />
-            <div className="page-content">
-              <DesignPatternsGuide />
-            </div>
+            <DesignPatternsGuide />
             <Footer />
-          </>}/>
-          <Route path="/pages/WeddingPhotos" element={<>
+          </div>}/>
+          <Route path="/pages/WeddingPhotos" element={<div>
             <Heading />
-            <div className="page-content">
-              <WeddingPhotos />
-            </div>
+            <WeddingPhotos />
             <Footer />
-          </>}/>
+          </div>}/>
           <Route path="/pages/*" element={<div>
             <Landing />
             <Footer />
