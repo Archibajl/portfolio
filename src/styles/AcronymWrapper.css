@@ -1,0 +1,114 @@
+/* AcronymWrapper.css */
+/* Styles for interactive acronym tooltips */
+
+.acronym-wrapper {
+  position: relative;
+  display: inline;
+}
+
+.acronym {
+  color: #0066cc;
+  text-decoration: underline dotted;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+  cursor: help;
+  font-weight: 500;
+  border-bottom: none;
+  transition: all 0.2s ease;
+}
+
+.acronym:hover {
+  color: #0052a3;
+  text-decoration-color: #0052a3;
+}
+
+/* Tooltip container */
+.acronym-tooltip {
+  position: fixed;
+  transform: translate(-50%, -100%) translateY(-12px);
+  background: #1a1a1a;
+  color: #ffffff;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.4;
+  min-width: 200px;
+  max-width: 320px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  pointer-events: none;
+  white-space: normal;
+  text-align: left;
+  animation: tooltipFadeIn 0.2s ease forwards;
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -100%) translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -100%) translateY(-12px);
+  }
+}
+
+/* Arrow pointing down */
+.acronym-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: #1a1a1a;
+}
+
+/* Tooltip content */
+.acronym-tooltip-expansion {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #4db8ff;
+}
+
+.acronym-tooltip-explanation {
+  display: block;
+  font-weight: 400;
+  color: #e0e0e0;
+}
+
+/* For mobile/touch devices - adjust positioning */
+@media (hover: none) {
+  .acronym-wrapper {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Ensure tooltips don't overflow the viewport */
+@media (max-width: 480px) {
+  .acronym-tooltip {
+    max-width: calc(100vw - 40px);
+    min-width: 180px;
+  }
+}
+
+/* Dark mode support - adjust if your site has a dark theme */
+@media (prefers-color-scheme: light) {
+  .acronym-tooltip {
+    background: #2d2d2d;
+    color: #f5f5f5;
+  }
+
+  .acronym-tooltip::after {
+    border-top-color: #2d2d2d;
+  }
+
+  .acronym-tooltip-expansion {
+    color: #0066cc;
+  }
+
+  .acronym-tooltip-explanation {
+    color: #e8e8e8;
+  }
+}
