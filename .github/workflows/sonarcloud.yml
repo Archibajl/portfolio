@@ -50,6 +50,8 @@ jobs:
           fetch-depth: 0  # Shallow clones should be disabled for better analysis
 
       - name: Analyze with SonarCloud
+      
+        needs: [Run linter, Build application, Run tests] # Ensure that linting, building, and testing are done before analysis
 
         # You can pin the exact commit or the version.
         # uses: SonarSource/sonarcloud-github-action@v2.2.0
