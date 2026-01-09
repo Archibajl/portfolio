@@ -7,10 +7,11 @@
 import React from 'react';
 import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import WeddingPhotoGallery from './InfiniteScroll';
+import { vi } from 'vitest';
+import WeddingPhotoGallery from '../components/InfiniteScroll';
 
 // Mock fetch globally
-global.fetch = jest.fn();
+global.fetch = vi.fn();
 
 describe('WeddingPhotoGallery Component', () => {
   beforeEach(() => {
@@ -34,7 +35,7 @@ describe('WeddingPhotoGallery Component', () => {
   });
 
   afterEach(() => {
-    jest.clearAllTimers();
+    vi.clearAllTimers();
   });
 
   describe('Component Rendering', () => {
@@ -98,7 +99,7 @@ describe('WeddingPhotoGallery Component', () => {
     });
 
     test('handles fetch errors gracefully', async () => {
-      const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
       global.fetch.mockRejectedValueOnce(new Error('Network error'));
 
       render(<WeddingPhotoGallery />);
@@ -554,7 +555,7 @@ describe('WeddingPhotoGallery Component', () => {
     });
 
     test('hides image on load error', async () => {
-      const consoleError = jest.spyOn(console, 'error').mockImplementation(() => {});
+      const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {});
       const { container } = render(<WeddingPhotoGallery />);
 
       await waitFor(() => {

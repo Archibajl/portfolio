@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Resume from './Resume';
+import Resume from '../pages/Resume';
 
 describe('Resume Component', () => {
   test('renders without crashing', () => {

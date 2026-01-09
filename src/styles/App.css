@@ -1,4 +1,19 @@
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-content {
+  flex: 1;
+  min-height: calc(100vh - 120px);
+}
+
 .heading {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
 }
 
 .about {
@@ -14,11 +29,12 @@
 }
 .footer {
   background-color: black;
-  position: fixed;
+  position: relative;
   left: 0;
-  bottom: 5%;
   width: 100%;
   text-align: center;
+  margin-top: auto;
+  padding: 1rem 0;
 }
 
 .LinkedIn-Image {
