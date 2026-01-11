@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Projects from './Projects';
+import Projects from '../pages/Projects';
 
 describe('Projects Component', () => {
   test('renders without crashing', () => {

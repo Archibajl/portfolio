@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Landing from './Landing';
+import Landing from '../components/Landing';
 
 describe('Landing Component', () => {
   test('renders without crashing', () => {

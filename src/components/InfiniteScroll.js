@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, memo } from 'react';
+import React, { useEffect, useState, useCallback, memo, useRef } from 'react';
 import './InfiniteScroll.css';
 
 // Memoized photo component to prevent re-rendering
@@ -53,11 +53,25 @@ function WeddingPhotoGallery() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  // Use refs to track current values without causing re-renders
+  const pageRef = useRef(page);
+  const isLoadingRef = useRef(isLoading);
+  const hasMoreRef = useRef(hasMore);
+  const prefetchedPageRef = useRef(prefetchedPage);
+
+  // Keep refs in sync
+  useEffect(() => {
+    pageRef.current = page;
+    isLoadingRef.current = isLoading;
+    hasMoreRef.current = hasMore;
+    prefetchedPageRef.current = prefetchedPage;
+  }, [page, isLoading, hasMore, prefetchedPage]);
+
   // Function to fetch photos (with optional prefetch mode)
   const fetchPhotos = useCallback(async (prefetch = false) => {
-    if (!prefetch && (isLoading || !hasMore)) return;
+    if (!prefetch && (isLoadingRef.current || !hasMoreRef.current)) return;
 
-    const pageToFetch = prefetch ? page + 1 : page;
+    const pageToFetch = prefetch ? pageRef.current + 1 : pageRef.current;
 
     if (!prefetch) setIsLoading(true);
 
@@ -77,8 +91,8 @@ function WeddingPhotoGallery() {
         }
       } else {
         // Check if we already prefetched this page
-        if (prefetchedPage && prefetchedPage.page === pageToFetch) {
-          setPhotos((prevPhotos) => [...prevPhotos, ...prefetchedPage.data.photos]);
+        if (prefetchedPageRef.current && prefetchedPageRef.current.page === pageToFetch) {
+          setPhotos((prevPhotos) => [...prevPhotos, ...prefetchedPageRef.current.data.photos]);
           setPrefetchedPage(null);
         } else if (data.photos && data.photos.length > 0) {
           setPhotos((prevPhotos) => [...prevPhotos, ...data.photos]);
@@ -97,7 +111,7 @@ function WeddingPhotoGallery() {
     } finally {
       if (!prefetch) setIsLoading(false);
     }
-  }, [page, isLoading, hasMore, prefetchedPage]);
+  }, []);
 
   // Throttle function for scroll optimization
   const throttle = (func, limit) => {
