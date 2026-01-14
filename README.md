@@ -95,9 +95,6 @@ npm test
 
 # Run tests once (CI mode)
 npm run test:ci
-
-# Run tests with UI
-npm run test:ui
 ```
 
 ### Linting
@@ -132,7 +129,7 @@ portfolio/
 ├── public/             # Static assets
 ├── server.js           # Express server
 ├── package.json
-└── vite.config.js      # Vite configuration
+└── vite.config.mjs     # Vite configuration
 ```
 
 ## API Endpoints
