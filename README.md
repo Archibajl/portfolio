@@ -1,70 +1,180 @@
-# Getting Started with Create React App
+# Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Personal portfolio website for Justin Archibald - showcasing projects, experience, and technical capabilities.
+
+## Overview
+
+This is a full-stack web application built with React and Express, featuring a dynamic portfolio with project showcases, resume/CV, design pattern guides, and a wedding photo gallery powered by Cloudflare R2 storage.
+
+## Tech Stack
+
+### Frontend
+- **React 18** - UI library
+- **React Router** - Client-side routing
+- **React Bootstrap** - UI components and styling
+- **Vite** - Build tool and dev server
+
+### Backend
+- **Express** - Web server
+- **Cloudflare R2** - Object storage for photos (S3-compatible)
+- **AWS SDK** - S3 client for R2 integration
+
+### Development & Testing
+- **Vitest** - Unit testing framework
+- **Testing Library** - React component testing
+- **ESLint** - Code linting
+
+## Features
+
+- **Home Page** - Professional bio and introduction
+- **Resume/CV** - Detailed experience and education
+- **Projects** - Portfolio of technical projects
+- **React Pages** - Interactive React demonstrations
+- **Design Patterns Guide** - Software design patterns reference
+- **Wedding Photos** - Photo gallery with infinite scroll, powered by R2 storage
+- **Responsive Design** - Mobile-friendly Bootstrap layout
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js >= 20.19.0
+- npm 10.x
+
+### Installation
+
+```bash
+# Clone the repository
+git clone <repository-url>
+
+# Install dependencies
+npm install
+```
+
+### Environment Variables
+
+Create a `.env` file in the root directory with the following variables (required for wedding photos feature):
+
+```env
+R2_ACCOUNT_ID=your_cloudflare_account_id
+R2_ACCESS_KEY_ID=your_r2_access_key
+R2_SECRET_ACCESS_KEY=your_r2_secret_key
+R2_BUCKET_NAME=your_bucket_name
+R2_PUBLIC_URL=your_public_url (optional)
+PORT=3000 (optional, defaults to 3000)
+```
 
 ## Available Scripts
 
-In the project directory, you can run:
+### Development
 
-### `npm start`
+```bash
+# Start Vite dev server
+npm run dev
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Runs the app in development mode with hot module replacement.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Production
 
-### `npm test`
+```bash
+# Build for production
+npm run build
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Start production server
+npm start
+```
 
-### `npm run build`
+The build command creates an optimized production build in the `build` folder. The start command runs the Express server to serve the built app.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Testing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+# Run tests in watch mode
+npm test
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Run tests once (CI mode)
+npm run test:ci
+```
 
-### `npm run eject`
+### Linting
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+# Check for lint errors
+npm run lint
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Auto-fix lint errors
+npm run lint:fix
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Preview
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```bash
+# Preview production build locally
+npm run preview
+```
 
-## Learn More
+## Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+portfolio/
+├── src/
+│   ├── components/     # Reusable React components
+│   ├── pages/          # Page components
+│   ├── styles/         # CSS files
+│   ├── images/         # Image assets
+│   ├── data/           # JSON data files
+│   ├── test/           # Test files
+│   └── App.js          # Main app component
+├── public/             # Static assets
+├── server.js           # Express server
+├── package.json
+└── vite.config.mjs     # Vite configuration
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API Endpoints
 
-### Code Splitting
+### GET `/api/photos`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Fetches paginated photos from Cloudflare R2 storage.
 
-### Analyzing the Bundle Size
+**Query Parameters:**
+- `page` (number, default: 1) - Page number for pagination
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Response:**
+```json
+{
+  "photos": ["signed_url_1", "signed_url_2", ...],
+  "hasMore": true,
+  "total": 100,
+  "page": 1,
+  "pageSize": 20
+}
+```
 
-### Making a Progressive Web App
+## Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+This application is configured for Heroku deployment:
 
-### Advanced Configuration
+```bash
+# The heroku-postbuild script automatically runs after deployment
+npm run heroku-postbuild
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+The `heroku-postbuild` script runs `npm run build` to create the production bundle.
 
-### Deployment
+## Node Version Requirements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Minimum Node.js version: 20.19.0
+- npm version: 10.x
 
-### `npm run build` fails to minify
+These are enforced in `package.json` via the `engines` field.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## License
+
+ISC
+
+## Author
+
+Justin Archibald
+- LinkedIn: [linkedin.com/in/justin-archibald-319279101](https://www.linkedin.com/in/justin-archibald-319279101)

@@ -30,7 +30,7 @@ name: SonarCloud analysis
 
 on:
   workflow_run:
-    workflows: ["CI - Build and Test"]
+    workflows: ["CI"]
     types:
       - completed
     branches: [ "main", "development" ]
