@@ -80,3 +80,36 @@ jobs:
             dist/
           if-no-files-found: ignore
           retention-days: 7
+
+  cleanup:
+    name: Cleanup artifacts on failure
+    runs-on: ubuntu-latest
+    needs: [lint, test, build]
+    if: failure()
+    permissions:
+      actions: write
+      contents: read
+
+    steps:
+      - name: Delete artifacts from this run
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const run_id = context.runId;
+            const { owner, repo } = context.repo;
+
+            const artifacts = await github.paginate(
+              github.rest.actions.listWorkflowRunArtifacts,
+              { owner, repo, run_id }
+            );
+
+            core.info(`Found ${artifacts.length} artifacts to delete`);
+
+            for (const a of artifacts) {
+              core.info(`Deleting artifact: ${a.name} (id=${a.id})`);
+              await github.rest.actions.deleteArtifact({
+                owner,
+                repo,
+                artifact_id: a.id
+              });
+            }
