@@ -1,0 +1,156 @@
+.ask-ai-container {
+  background-color: #1e2128;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 30px;
+  border: 1px solid #3a3f4b;
+}
+
+.ask-ai-header {
+  color: #61dafb;
+  margin: 0 0 10px 0;
+  font-size: 1.5rem;
+}
+
+.ask-ai-description {
+  color: #a0a0a0;
+  margin: 0 0 20px 0;
+  font-size: 0.9rem;
+}
+
+.chat-messages {
+  background-color: #282c35;
+  border-radius: 6px;
+  padding: 15px;
+  min-height: 200px;
+  max-height: 400px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+}
+
+.chat-placeholder {
+  color: #6c7280;
+  font-style: italic;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.chat-message {
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border-radius: 8px;
+}
+
+.user-message {
+  background-color: #3a4556;
+  margin-left: 20%;
+}
+
+.assistant-message {
+  background-color: #2a3441;
+  margin-right: 20%;
+  border-left: 3px solid #61dafb;
+}
+
+.message-role {
+  font-size: 0.75rem;
+  color: #61dafb;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.message-content {
+  color: #e0e0e0;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.chat-form {
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #3a3f4b;
+  border-radius: 6px;
+  background-color: #282c35;
+  color: white;
+  font-size: 1rem;
+}
+
+.chat-input:focus {
+  outline: none;
+  border-color: #61dafb;
+}
+
+.chat-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.chat-input::placeholder {
+  color: #6c7280;
+}
+
+.chat-submit {
+  padding: 12px 24px;
+  background-color: #61dafb;
+  color: #282c35;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.chat-submit:hover:not(:disabled) {
+  background-color: #4fc3f7;
+}
+
+.chat-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Scrollbar styling */
+.chat-messages::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+  background: #1e2128;
+  border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+  background: #3a3f4b;
+  border-radius: 4px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #4a4f5b;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .user-message {
+    margin-left: 10%;
+  }
+
+  .assistant-message {
+    margin-right: 10%;
+  }
+
+  .chat-form {
+    flex-direction: column;
+  }
+
+  .chat-submit {
+    width: 100%;
+  }
+}

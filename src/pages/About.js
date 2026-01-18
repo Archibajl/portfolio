@@ -1,5 +1,6 @@
 import "../styles/About.css";
 import React from "react";
+import AskAI from "../components/AskAI";
 
 function About() {
   const aboutPage = (
@@ -58,6 +59,8 @@ function About() {
         <p>{aboutPage}</p>
         <h2 className="link-header"> Links</h2>
         <p>{usageLinks}</p>
+
+        <AskAI />
       </div>
     </div>
   );
